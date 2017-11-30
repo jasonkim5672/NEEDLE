@@ -13,7 +13,7 @@ extension CAGradientLayer {
     
     /*
      Needle color start 136.128.216
-     Needle color end 91.143.181
+     Needle color end 91.143.191
      */
     
     convenience init(frame: CGRect, colors: [UIColor]) {
@@ -23,8 +23,8 @@ extension CAGradientLayer {
         for color in colors {
             self.colors?.append(color.cgColor)
         }
-        startPoint = CGPoint(x: 0, y: 1)
-        endPoint = CGPoint(x: 2, y: 0)
+        startPoint = CGPoint(x: 0, y: 0.3)
+        endPoint = CGPoint(x: 0.6, y: 0)
     }
     
     func creatGradientImage() -> UIImage? {

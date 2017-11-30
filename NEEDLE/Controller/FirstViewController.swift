@@ -7,7 +7,7 @@
 //
 /*
  Needle color start 136.128.216
- Needle color end 91.143.181
+ Needle color end 91.143.191
  */
 
 import UIKit
@@ -20,7 +20,7 @@ class FirstViewController: UIViewController{
         //self.gradienBackground(from: UIColor(red:120/255,green:0/255,blue:255/255,alpha:1.0),to: UIColor(red:0/255,green:0/255,blue:255/255,alpha:1.0),direction : 1)
         var colors = [UIColor]()
         colors.append(UIColor(red: 136, green: 128, blue: 216))
-        colors.append(UIColor(red: 91, green: 143, blue: 181))
+        colors.append(UIColor(red: 91, green: 143, blue: 191))
         navigationController?.navigationBar.setGradientBackground(colors: colors)
     }
 
