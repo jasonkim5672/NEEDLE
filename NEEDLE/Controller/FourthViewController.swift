@@ -12,7 +12,10 @@ class FourthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var colors = [UIColor]()
+        colors.append(UIColor(red: 136, green: 128, blue: 216))
+        colors.append(UIColor(red: 91, green: 143, blue: 191))
+        navigationController?.navigationBar.setGradientBackground(colors: colors)
         // Do any additional setup after loading the view.
     }
 

@@ -1,0 +1,6 @@
+framework module Pods_NEEDLE {
+  umbrella header "Pods-NEEDLE-umbrella.h"
+
+  export *
+  module * { export * }
+}

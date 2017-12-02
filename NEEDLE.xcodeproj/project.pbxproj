@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15B71610BBE44E7A8F3ACF0C /* Pods_NEEDLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */; };
+		E07A201A1FD2E2C1003DE64C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */; };
 		E0D087DC1FCEF0B3005681CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DB1FCEF0B3005681CC /* AppDelegate.swift */; };
 		E0D087DE1FCEF0B3005681CC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DD1FCEF0B3005681CC /* FirstViewController.swift */; };
 		E0D087E01FCEF0B3005681CC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DF1FCEF0B3005681CC /* SecondViewController.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.debug.xcconfig"; sourceTree = "<group>"; };
+		E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0D087D81FCEF0B3005681CC /* NEEDLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEEDLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D087DB1FCEF0B3005681CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D087DD1FCEF0B3005681CC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		E0EDA8431FD28DB400A1A57E /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
 		E0EDA8481FD28F2300A1A57E /* NMHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMHeader.h; sourceTree = "<group>"; };
 		E0EDA8491FD2917B00A1A57E /* NMapViewResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
+		E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NEEDLE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC540FF57B14E7205D371D1 /* Pods-NEEDLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +77,22 @@
 			files = (
 				E0EDA8441FD28DB400A1A57E /* ApiGatewayMac.framework in Frameworks */,
 				E0EDA8421FD28D1100A1A57E /* NMapViewerSDK.framework in Frameworks */,
+				15B71610BBE44E7A8F3ACF0C /* Pods_NEEDLE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6ED1D634830A3E38874EBCDA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */,
+				FBC540FF57B14E7205D371D1 /* Pods-NEEDLE.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E0D087CF1FCEF0B3005681CC = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +100,7 @@
 				E0D087DA1FCEF0B3005681CC /* NEEDLE */,
 				E0D087D91FCEF0B3005681CC /* Products */,
 				E0EDA83E1FD28BF500A1A57E /* Frameworks */,
+				6ED1D634830A3E38874EBCDA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +125,7 @@
 				E0D087E91FCEF0B3005681CC /* Info.plist */,
 				E0D087FB1FCF0D74005681CC /* Extension */,
 				E0EDA8481FD28F2300A1A57E /* NMHeader.h */,
+				E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */,
 			);
 			path = NEEDLE;
 			sourceTree = "<group>";
@@ -163,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				E0EDA8411FD28D1100A1A57E /* NMapViewerSDK.framework */,
+				E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,11 +193,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0D087EC1FCEF0B3005681CC /* Build configuration list for PBXNativeTarget "NEEDLE" */;
 			buildPhases = (
+				60A60A426D7C94E118EF1139 /* [CP] Check Pods Manifest.lock */,
 				E0D087D41FCEF0B3005681CC /* Sources */,
 				E0D087D51FCEF0B3005681CC /* Frameworks */,
 				E0D087D61FCEF0B3005681CC /* Resources */,
 				E0EDA8461FD28DB500A1A57E /* Embed Frameworks */,
 				E0EDA8471FD28DDC00A1A57E /* ShellScript */,
+				CB7879B458E4C06BDB549BF0 /* [CP] Embed Pods Frameworks */,
+				802A0926D680ECA1D32E1733 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D087E81FCEF0B3005681CC /* LaunchScreen.storyboard in Resources */,
+				E07A201A1FD2E2C1003DE64C /* GoogleService-Info.plist in Resources */,
 				E0D087E51FCEF0B3005681CC /* Assets.xcassets in Resources */,
 				E0D087E31FCEF0B3005681CC /* Main.storyboard in Resources */,
 			);
@@ -237,6 +260,65 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		60A60A426D7C94E118EF1139 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NEEDLE-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		802A0926D680ECA1D32E1733 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB7879B458E4C06BDB549BF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E0EDA8471FD28DDC00A1A57E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,6 +485,7 @@
 		};
 		E0D087ED1FCEF0B3005681CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -430,6 +513,7 @@
 		};
 		E0D087EE1FCEF0B3005681CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBC540FF57B14E7205D371D1 /* Pods-NEEDLE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
