@@ -21,7 +21,25 @@
 		E0D088031FCF1515005681CC /* UINavigationBar+gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D088021FCF1515005681CC /* UINavigationBar+gradient.swift */; };
 		E0D088051FCF1553005681CC /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D088041FCF1553005681CC /* CAGradientLayer.swift */; };
 		E0D088071FCF16E2005681CC /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D088061FCF16E2005681CC /* UIColor+Ext.swift */; };
+		E0EDA8421FD28D1100A1A57E /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EDA8411FD28D1100A1A57E /* NMapViewerSDK.framework */; };
+		E0EDA8441FD28DB400A1A57E /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EDA8431FD28DB400A1A57E /* ApiGatewayMac.framework */; };
+		E0EDA8451FD28DB400A1A57E /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E0EDA8431FD28DB400A1A57E /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E0EDA84A1FD2917B00A1A57E /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EDA8491FD2917B00A1A57E /* NMapViewResources.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E0EDA8461FD28DB500A1A57E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E0EDA8451FD28DB400A1A57E /* ApiGatewayMac.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E0D087D81FCEF0B3005681CC /* NEEDLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEEDLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +58,10 @@
 		E0D088021FCF1515005681CC /* UINavigationBar+gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+gradient.swift"; sourceTree = "<group>"; };
 		E0D088041FCF1553005681CC /* CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		E0D088061FCF16E2005681CC /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		E0EDA8411FD28D1100A1A57E /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMapViewerSDK.framework; sourceTree = "<group>"; };
+		E0EDA8431FD28DB400A1A57E /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
+		E0EDA8481FD28F2300A1A57E /* NMHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMHeader.h; sourceTree = "<group>"; };
+		E0EDA8491FD2917B00A1A57E /* NMapViewResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0EDA8441FD28DB400A1A57E /* ApiGatewayMac.framework in Frameworks */,
+				E0EDA8421FD28D1100A1A57E /* NMapViewerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,8 +80,10 @@
 		E0D087CF1FCEF0B3005681CC = {
 			isa = PBXGroup;
 			children = (
+				E0EDA8431FD28DB400A1A57E /* ApiGatewayMac.framework */,
 				E0D087DA1FCEF0B3005681CC /* NEEDLE */,
 				E0D087D91FCEF0B3005681CC /* Products */,
+				E0EDA83E1FD28BF500A1A57E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +107,7 @@
 				E0D087E61FCEF0B3005681CC /* LaunchScreen.storyboard */,
 				E0D087E91FCEF0B3005681CC /* Info.plist */,
 				E0D087FB1FCF0D74005681CC /* Extension */,
+				E0EDA8481FD28F2300A1A57E /* NMHeader.h */,
 			);
 			path = NEEDLE;
 			sourceTree = "<group>";
@@ -119,6 +146,7 @@
 		E0D088001FCF10C3005681CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E0EDA8491FD2917B00A1A57E /* NMapViewResources.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +159,14 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		E0EDA83E1FD28BF500A1A57E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0EDA8411FD28D1100A1A57E /* NMapViewerSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +177,8 @@
 				E0D087D41FCEF0B3005681CC /* Sources */,
 				E0D087D51FCEF0B3005681CC /* Frameworks */,
 				E0D087D61FCEF0B3005681CC /* Resources */,
+				E0EDA8461FD28DB500A1A57E /* Embed Frameworks */,
+				E0EDA8471FD28DDC00A1A57E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -198,6 +236,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E0EDA8471FD28DDC00A1A57E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Users/jasonkim/git/NEEDLE/Scripts/strip-frameworks.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E0D087D41FCEF0B3005681CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -207,6 +261,7 @@
 				E0D088051FCF1553005681CC /* CAGradientLayer.swift in Sources */,
 				E0D087E01FCEF0B3005681CC /* SecondViewController.swift in Sources */,
 				E0D088031FCF1515005681CC /* UINavigationBar+gradient.swift in Sources */,
+				E0EDA84A1FD2917B00A1A57E /* NMapViewResources.swift in Sources */,
 				E0D088071FCF16E2005681CC /* UIColor+Ext.swift in Sources */,
 				E0D087F71FCF078F005681CC /* NeedleTabBarItem.swift in Sources */,
 				E0D087DC1FCEF0B3005681CC /* AppDelegate.swift in Sources */,
@@ -352,11 +407,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWW8335878;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"\"$(SRCROOT)/NMapViewerSDK.framework\"",
+					"\"$(SRCROOT)/ApiGatewayMac.framework\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/NEEDLE/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ssu.needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/jasonkim/git/NEEDLE/NEEDLE/NMHeader.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -368,11 +434,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWW8335878;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"\"$(SRCROOT)/NMapViewerSDK.framework\"",
+					"\"$(SRCROOT)/ApiGatewayMac.framework\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/NEEDLE/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ssu.needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/jasonkim/git/NEEDLE/NEEDLE/NMHeader.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
