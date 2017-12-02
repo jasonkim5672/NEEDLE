@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		15B71610BBE44E7A8F3ACF0C /* Pods_NEEDLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */; };
 		E07A201A1FD2E2C1003DE64C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */; };
+		E0998E2B1FD30074003C97C0 /* menuListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0998E2A1FD30074003C97C0 /* menuListCell.swift */; };
+		E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */; };
 		E0D087DC1FCEF0B3005681CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DB1FCEF0B3005681CC /* AppDelegate.swift */; };
 		E0D087DE1FCEF0B3005681CC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DD1FCEF0B3005681CC /* FirstViewController.swift */; };
 		E0D087E01FCEF0B3005681CC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DF1FCEF0B3005681CC /* SecondViewController.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.debug.xcconfig"; sourceTree = "<group>"; };
 		E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E0998E2A1FD30074003C97C0 /* menuListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuListCell.swift; sourceTree = "<group>"; };
+		E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginAreaView.swift; sourceTree = "<group>"; };
 		E0D087D81FCEF0B3005681CC /* NEEDLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEEDLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D087DB1FCEF0B3005681CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D087DD1FCEF0B3005681CC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 			children = (
 				E0D087F61FCF078F005681CC /* NeedleTabBarItem.swift */,
 				E0D087F91FCF0C9B005681CC /* NeedleNavigationBar.swift */,
+				E0998E2A1FD30074003C97C0 /* menuListCell.swift */,
+				E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D087F51FCEF579005681CC /* FifthViewController.swift in Sources */,
+				E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */,
 				E0D088051FCF1553005681CC /* CAGradientLayer.swift in Sources */,
 				E0D087E01FCEF0B3005681CC /* SecondViewController.swift in Sources */,
 				E0D088031FCF1515005681CC /* UINavigationBar+gradient.swift in Sources */,
@@ -350,6 +357,7 @@
 				E0D087F11FCEF3C0005681CC /* ThirdViewController.swift in Sources */,
 				E0D087DE1FCEF0B3005681CC /* FirstViewController.swift in Sources */,
 				E0D087FA1FCF0C9B005681CC /* NeedleNavigationBar.swift in Sources */,
+				E0998E2B1FD30074003C97C0 /* menuListCell.swift in Sources */,
 				E0D087F31FCEF568005681CC /* FourthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +510,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ssu.needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,6 +539,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ssu.needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
