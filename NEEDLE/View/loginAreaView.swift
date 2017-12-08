@@ -9,6 +9,7 @@
 import UIKit
 
 class loginAreaView: UIView {
+    
     @IBOutlet var userPhoto: UIImageView!{
         didSet{
             userPhoto.layer.cornerRadius = userPhoto.bounds.width / 2
@@ -17,7 +18,7 @@ class loginAreaView: UIView {
         }
         
     }
-    @IBOutlet var userName: UILabel!
+    @IBOutlet var userName: UIButton!
     @IBOutlet var userNumber: UILabel!
 
     /*

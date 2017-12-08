@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15B71610BBE44E7A8F3ACF0C /* Pods_NEEDLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */; };
+		E06176211FDAC56400E830CA /* loginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06176201FDAC56400E830CA /* loginScreenController.swift */; };
 		E07A201A1FD2E2C1003DE64C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */; };
 		E0998E2B1FD30074003C97C0 /* menuListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0998E2A1FD30074003C97C0 /* menuListCell.swift */; };
 		E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.debug.xcconfig"; sourceTree = "<group>"; };
+		E06176201FDAC56400E830CA /* loginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginScreenController.swift; sourceTree = "<group>"; };
 		E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0998E2A1FD30074003C97C0 /* menuListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuListCell.swift; sourceTree = "<group>"; };
 		E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginAreaView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				E0D087F01FCEF3C0005681CC /* ThirdViewController.swift */,
 				E0D087F21FCEF568005681CC /* FourthViewController.swift */,
 				E0D087F41FCEF579005681CC /* FifthViewController.swift */,
+				E06176201FDAC56400E830CA /* loginScreenController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06176211FDAC56400E830CA /* loginScreenController.swift in Sources */,
 				E0D087F51FCEF579005681CC /* FifthViewController.swift in Sources */,
 				E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */,
 				E0D088051FCF1553005681CC /* CAGradientLayer.swift in Sources */,
