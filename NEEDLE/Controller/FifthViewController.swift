@@ -13,7 +13,7 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
     @IBOutlet weak var loginArea: loginAreaView!
     @IBOutlet weak var backgroundLayer: UIView!
     @IBOutlet var logOutButton : UIButton!
-    
+
     @IBAction func showLoginScreen(segue: UIStoryboardSegue){
         
     }
@@ -21,21 +21,28 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
         dismiss(animated: true, completion: nil)
     }
     @IBAction func logIn(segue: UIStoryboardSegue){
-        
+        let rootRef = Database.database().reference()
+
             Auth.auth().signIn(withEmail: "supopopo@naver.com", password: "930204") { (user, error) in
                 if user != nil{
                     print("login success")
                     if let user = Auth.auth().currentUser {
-                        let uid = user.uid
-                        self.loginArea.userNumber.text = "회원UID : " + uid
-                        
-                        let email = user.email
+                        rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
+                            // Get user value
+                            let value = userData.value as? NSDictionary
+                            let username = value?["username"] as? String ?? ""
+                            self.loginArea.userName.setTitle(username + " 님",for: .normal)
+                            self.loginArea.userNumber.text = user.email
+                            
+                            // ...
+                        }) { (error) in
+                            print(error.localizedDescription)
+                        }
                         if let photoURL = user.photoURL{
                             self.loginArea.userPhoto.image = UIImage(named: String(describing:photoURL))
                         }else{
                             self.loginArea.userPhoto.image = UIImage(named: "defaultUser")
                         }
-                        self.loginArea.userName.setTitle(email!+" 님",for: .normal)
                         self.loginArea.isUserInteractionEnabled=false
                         self.logOutButton.isHidden=false
                         
@@ -100,25 +107,30 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
         
         backgroundLayer.layer.addSublayer(gradientLayer)
        
+
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        
+        let rootRef = Database.database().reference()
+
         if let user = Auth.auth().currentUser {
-            let uid = user.uid
-            loginArea.userNumber.text = "회원UID : " + uid
-            
-            let email = user.email
             if let photoURL = user.photoURL{
                 loginArea.userPhoto.image = UIImage(named: String(describing:photoURL))
             }else{
                 loginArea.userPhoto.image = UIImage(named: "defaultUser")
             }
-            loginArea.userName.setTitle(email!+" 님",for: .normal)
+            rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
+                // Get user value
+                let value = userData.value as? NSDictionary
+                let username = value?["username"] as? String ?? ""
+                self.loginArea.userName.setTitle(username + " 님",for: .normal)
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            self.loginArea.userNumber.text = user.email
             loginArea.isUserInteractionEnabled=false
             logOutButton.isHidden=false
-            //logOutButton.layer.borderColor = UIColor.gray.cgColor // Set border color
-            //logOutButton.layer.borderWidth = 1
+
         }else{
             loginArea.userPhoto.image = UIImage(named: "defaultUser")
             loginArea.userName.setTitle("로그인이 필요합니다.",for: .normal)
