@@ -2,4 +2,176 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NEEDLE/Controller/ProfilePageTableViewController.swift"
+            timestampString = "534613842.260447"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in NEEDLE.ProfilePageTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "NEEDLE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonkim/git/NEEDLE/NEEDLE/Controller/ProfilePageTableViewController.swift"
+                  timestampString = "534522164.69912"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "988">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in closure #1 (__ObjC.DataSnapshot) -&gt; () in NEEDLE.ProfilePageTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "NEEDLE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonkim/git/NEEDLE/NEEDLE/Controller/ProfilePageTableViewController.swift"
+                  timestampString = "534522164.701378"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #2 : @autoclosure () throws -&gt; Swift.String in closure #1 (__ObjC.DataSnapshot) -&gt; () in NEEDLE.ProfilePageTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "NEEDLE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonkim/git/NEEDLE/NEEDLE/Controller/ProfilePageTableViewController.swift"
+                  timestampString = "534522164.703317"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #3 : @autoclosure () throws -&gt; Swift.String in closure #1 (__ObjC.DataSnapshot) -&gt; () in NEEDLE.ProfilePageTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "NEEDLE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonkim/git/NEEDLE/NEEDLE/Controller/ProfilePageTableViewController.swift"
+                  timestampString = "534522164.704813"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #4 : @autoclosure () throws -&gt; Swift.String in closure #1 (__ObjC.DataSnapshot) -&gt; () in NEEDLE.ProfilePageTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "NEEDLE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonkim/git/NEEDLE/NEEDLE/Controller/ProfilePageTableViewController.swift"
+                  timestampString = "534522164.706402"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #5 : @autoclosure () throws -&gt; Swift.String in closure #1 (__ObjC.DataSnapshot) -&gt; () in NEEDLE.ProfilePageTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "NEEDLE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonkim/git/NEEDLE/NEEDLE/Controller/ProfilePageTableViewController.swift"
+                  timestampString = "534522164.707636"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #6 : @autoclosure () throws -&gt; Swift.String in closure #1 (__ObjC.DataSnapshot) -&gt; () in NEEDLE.ProfilePageTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "NEEDLE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonkim/git/NEEDLE/NEEDLE/Controller/ProfilePageTableViewController.swift"
+                  timestampString = "534522164.708852"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #7 : @autoclosure () throws -&gt; Swift.String in closure #1 (__ObjC.DataSnapshot) -&gt; () in NEEDLE.ProfilePageTableViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "NEEDLE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonkim/git/NEEDLE/NEEDLE/Controller/ProfilePageTableViewController.swift"
+                  timestampString = "534522164.710266"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NEEDLE/Controller/ProfilePageTableViewController.swift"
+            timestampString = "534613842.26052"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NEEDLE/Controller/ProfilePageTableViewController.swift"
+            timestampString = "534613842.260571"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -9,7 +9,9 @@
 import UIKit
 
 
-class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverlayDelegate {
+class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverlayDelegate,UISearchResultsUpdating {
+    var searchController: UISearchController!
+    
     
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
         return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
@@ -28,7 +30,11 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, calloutOffsetWithType poiFlagType: NMapPOIflagType) -> CGPoint {
         return CGPoint(x: 0, y: 0)
     }
-    
+    func updateSearchResults(for searchController: UISearchController) {
+        //if let searchText = searchController.searchBar.text {
+        //filterContent(for: searchText)
+        //tableView.reloadData() }
+    }
     var mapView: NMapView?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,14 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         colors.append(UIColor(red: 136, green: 128, blue: 216))
         colors.append(UIColor(red: 91, green: 143, blue: 191))
         navigationController?.navigationBar.setGradientBackground(colors: colors)
+        //=searchController.searchBar
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "필터로 검색해보세요"
+        searchController.searchBar.barTintColor = .white // background color
+        searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.tintColor = UIColor(red: 231, green: 76, blue: 60)
         // Do any additional setup after loading the view, typically from a nib.
         mapView = NMapView(frame: self.view.frame)
         self.navigationController?.navigationBar.isTranslucent = false

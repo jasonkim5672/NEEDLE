@@ -13,7 +13,6 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
     @IBOutlet weak var loginArea: loginAreaView!
     @IBOutlet weak var backgroundLayer: UIView!
     @IBOutlet var logOutButton : UIButton!
-
     @IBAction func showLoginScreen(segue: UIStoryboardSegue){
         
     }
@@ -22,37 +21,37 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
     }
     @IBAction func logIn(segue: UIStoryboardSegue){
         let rootRef = Database.database().reference()
-
-            Auth.auth().signIn(withEmail: "supopopo@naver.com", password: "930204") { (user, error) in
-                if user != nil{
-                    print("login success")
-                    if let user = Auth.auth().currentUser {
-                        rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
-                            // Get user value
-                            let value = userData.value as? NSDictionary
-                            let username = value?["username"] as? String ?? ""
-                            self.loginArea.userName.setTitle(username + " 님",for: .normal)
-                            self.loginArea.userNumber.text = user.email
-                            
-                            // ...
-                        }) { (error) in
-                            print(error.localizedDescription)
-                        }
-                        if let photoURL = user.photoURL{
-                            self.loginArea.userPhoto.image = UIImage(named: String(describing:photoURL))
-                        }else{
-                            self.loginArea.userPhoto.image = UIImage(named: "defaultUser")
-                        }
-                        self.loginArea.isUserInteractionEnabled=false
-                        self.logOutButton.isHidden=false
+        
+        Auth.auth().signIn(withEmail: "supopopo@naver.com", password: "930204") { (user, error) in
+            if user != nil{
+                print("login success")
+                if let user = Auth.auth().currentUser {
+                    rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
+                        // Get user value
+                        let value = userData.value as? NSDictionary
+                        let username = value?["username"] as? String ?? ""
+                        self.loginArea.userName.setTitle(username + " 님",for: .normal)
+                        self.loginArea.userNumber.text = user.email
                         
+                        // ...
+                    }) { (error) in
+                        print(error.localizedDescription)
                     }
-                }
-                else{
-                    print("login fail")
+                    if let photoURL = user.photoURL{
+                        self.loginArea.userPhoto.image = UIImage(named: String(describing:photoURL))
+                    }else{
+                        self.loginArea.userPhoto.image = UIImage(named: "defaultUser")
+                    }
+                    self.loginArea.isUserInteractionEnabled=false
+                    self.logOutButton.isHidden=false
+                    
                 }
             }
-       
+            else{
+                print("login fail")
+            }
+        }
+        
     }
     
     @IBAction func logOut(segue: UIStoryboardSegue){
@@ -73,7 +72,7 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
         
         
     }
-    let menuList = ["구독목록", "정보수정", "설정", "고객센터"]
+    let menuList = ["마이페이지","구독목록", "정보수정", "설정", "고객센터"]
     let gradientLayer = CAGradientLayer()
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -106,18 +105,19 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
         
         
         backgroundLayer.layer.addSublayer(gradientLayer)
-       
-
+        navigationController?.navigationBar.isHidden=true
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
         let rootRef = Database.database().reference()
-
+        
         if let user = Auth.auth().currentUser {
             if let photoURL = user.photoURL{
                 loginArea.userPhoto.image = UIImage(named: String(describing:photoURL))
             }else{
-                loginArea.userPhoto.image = UIImage(named: "defaultUser")
+                //loginArea.userPhoto.image = UIImage(named: "defaultUser")
+                loginArea.userPhoto.image = UIImage(named: "BW")
             }
             rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
                 // Get user value
@@ -130,7 +130,7 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
             self.loginArea.userNumber.text = user.email
             loginArea.isUserInteractionEnabled=false
             logOutButton.isHidden=false
-
+            
         }else{
             loginArea.userPhoto.image = UIImage(named: "defaultUser")
             loginArea.userName.setTitle("로그인이 필요합니다.",for: .normal)
@@ -150,15 +150,44 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "logOut" {
-            let destinationController = segue.destination as! FifthViewController
-           
-            
+        if segue.identifier == "showMyProfile" {
+            let destinationController = segue.destination as! ProfilePageTableViewController
+            let rootRef = Database.database().reference()
+            if let user = Auth.auth().currentUser {
+              
+                
+                rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
+                    // Get user value
+                    let Data = userData.value as? NSDictionary
+                    let coverImage = Data?["coverImage"] as? String ?? " "
+                    if (coverImage==" "){
+                        //destinationController.profileHeaderView.coverImage.image = UIImage(named: "defaultCover")
+                        destinationController.profileHeaderView.coverImage.image = UIImage(named: "bwCover")
+
+                    }else{
+                        destinationController.profileHeaderView.coverImage.image = UIImage(named: String(describing:coverImage))
+
+                    }
+                    if let photoURL = user.photoURL{
+                        destinationController.profileHeaderView.profileImage.image = UIImage(named: String(describing:photoURL))
+                    }else{
+                        //destinationController.profileHeaderView.profileImage.image = UIImage(named: "defaultUser")
+                        destinationController.profileHeaderView.profileImage.image = UIImage(named: "BW")
+                    }
+                    
+                    let username = Data?["username"] as? String ?? ""
+                    
+                    destinationController.profileHeaderView.name.text = username
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+                
+            }
         }
         
     }
-    
-    
+    ////////////
+
     
     /*
      // MARK: - Navigation

@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		15B71610BBE44E7A8F3ACF0C /* Pods_NEEDLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */; };
+		E01203B81FDD69A500838638 /* EventPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01203B71FDD69A500838638 /* EventPostView.swift */; };
+		E02FDFA21FDBE0560092BB84 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */; };
+		E02FDFA41FDBE0910092BB84 /* ProfilePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */; };
 		E06176211FDAC56400E830CA /* loginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06176201FDAC56400E830CA /* loginScreenController.swift */; };
 		E07A201A1FD2E2C1003DE64C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */; };
 		E0998E2B1FD30074003C97C0 /* menuListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0998E2A1FD30074003C97C0 /* menuListCell.swift */; };
 		E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */; };
+		E09FB34D1FDC087F00D47536 /* EventPostCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09FB34C1FDC087F00D47536 /* EventPostCellTableViewCell.swift */; };
+		E09FB34F1FDC15C800D47536 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09FB34E1FDC15C800D47536 /* Event.swift */; };
+		E09FB3511FDC302700D47536 /* UpTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09FB3501FDC302700D47536 /* UpTabbarController.swift */; };
 		E0D087DC1FCEF0B3005681CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DB1FCEF0B3005681CC /* AppDelegate.swift */; };
 		E0D087DE1FCEF0B3005681CC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DD1FCEF0B3005681CC /* FirstViewController.swift */; };
 		E0D087E01FCEF0B3005681CC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D087DF1FCEF0B3005681CC /* SecondViewController.swift */; };
@@ -48,10 +54,16 @@
 
 /* Begin PBXFileReference section */
 		734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.debug.xcconfig"; sourceTree = "<group>"; };
+		E01203B71FDD69A500838638 /* EventPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPostView.swift; sourceTree = "<group>"; };
+		E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewController.swift; sourceTree = "<group>"; };
 		E06176201FDAC56400E830CA /* loginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginScreenController.swift; sourceTree = "<group>"; };
 		E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0998E2A1FD30074003C97C0 /* menuListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuListCell.swift; sourceTree = "<group>"; };
 		E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginAreaView.swift; sourceTree = "<group>"; };
+		E09FB34C1FDC087F00D47536 /* EventPostCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPostCellTableViewCell.swift; sourceTree = "<group>"; };
+		E09FB34E1FDC15C800D47536 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E09FB3501FDC302700D47536 /* UpTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpTabbarController.swift; sourceTree = "<group>"; };
 		E0D087D81FCEF0B3005681CC /* NEEDLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEEDLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D087DB1FCEF0B3005681CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D087DD1FCEF0B3005681CC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +157,8 @@
 				E0D087F21FCEF568005681CC /* FourthViewController.swift */,
 				E0D087F41FCEF579005681CC /* FifthViewController.swift */,
 				E06176201FDAC56400E830CA /* loginScreenController.swift */,
+				E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */,
+				E09FB3501FDC302700D47536 /* UpTabbarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -156,6 +170,9 @@
 				E0D087F91FCF0C9B005681CC /* NeedleNavigationBar.swift */,
 				E0998E2A1FD30074003C97C0 /* menuListCell.swift */,
 				E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */,
+				E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */,
+				E09FB34C1FDC087F00D47536 /* EventPostCellTableViewCell.swift */,
+				E01203B71FDD69A500838638 /* EventPostView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				E0EDA8491FD2917B00A1A57E /* NMapViewResources.swift */,
+				E09FB34E1FDC15C800D47536 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,7 +370,13 @@
 				E0D087F51FCEF579005681CC /* FifthViewController.swift in Sources */,
 				E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */,
 				E0D088051FCF1553005681CC /* CAGradientLayer.swift in Sources */,
+				E09FB3511FDC302700D47536 /* UpTabbarController.swift in Sources */,
+				E09FB34D1FDC087F00D47536 /* EventPostCellTableViewCell.swift in Sources */,
+				E02FDFA21FDBE0560092BB84 /* ProfileHeaderView.swift in Sources */,
+				E09FB34F1FDC15C800D47536 /* Event.swift in Sources */,
 				E0D087E01FCEF0B3005681CC /* SecondViewController.swift in Sources */,
+				E02FDFA41FDBE0910092BB84 /* ProfilePageTableViewController.swift in Sources */,
+				E01203B81FDD69A500838638 /* EventPostView.swift in Sources */,
 				E0D088031FCF1515005681CC /* UINavigationBar+gradient.swift in Sources */,
 				E0EDA84A1FD2917B00A1A57E /* NMapViewResources.swift in Sources */,
 				E0D088071FCF16E2005681CC /* UIColor+Ext.swift in Sources */,
