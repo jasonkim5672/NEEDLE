@@ -17,7 +17,9 @@ class FirstViewController: UIViewController, UIScrollViewDelegate,UIScrollViewAc
     @IBOutlet weak var nearIssuePage: UIPageControl!
     @IBOutlet weak var nearIssueScrollView: UIScrollView!
     @IBOutlet var nearIssueView: EventPostView!
+    @IBOutlet var nearIssueView2: EventPostView!
     var nearEventsView : [EventPostView] = []
+
     @IBOutlet weak var recommendIssueScrollView: UIScrollView!
     @IBOutlet weak var recommendIssueView: EventPostView!
     var recommendEventsView : [EventPostView] = []
@@ -41,12 +43,17 @@ class FirstViewController: UIViewController, UIScrollViewDelegate,UIScrollViewAc
         colors.append(UIColor(red: 91, green: 143, blue: 191))
         navigationController?.navigationBar.setGradientBackground(colors: colors)
         var nScreen : Int = 0
-        for _ in 1...3{
-            let anotherPage = nearIssueView
-            let anotherPage2 = recommendIssueView
-            nearEventsView.append(anotherPage!)
-            recommendEventsView.append(anotherPage2!)
-        }
+        
+            //var anotherPage = nearIssueView2!
+            //anotherPage.copyEvents(from: nearIssueView)
+            
+            //var anotherPage2 : EventPostView!
+            //anotherPage2.copyEvents(from: recommendIssueView)
+            
+            nearEventsView.append(nearIssueView)
+            nearEventsView.append(nearIssueView2)
+            recommendEventsView.append(recommendIssueView)
+        
         
         for post in nearEventsView {
             post.thumbnailImage.image = UIImage(named : "TheMan")
@@ -56,14 +63,14 @@ class FirstViewController: UIViewController, UIScrollViewDelegate,UIScrollViewAc
             post.summaryLabel.text = "선착순 100명 마감!"
             post.dateLabel.text = "2017/12/21"
             //let imageView = UIImageView(image : imageToDisplay)
-            let xCoordinate = nearIssueScrollView.frame.midX + nearIssueScrollView.frame.width * CGFloat(nScreen)
-            post.frame = CGRect(x:xCoordinate-(375/2), y : nearIssueScrollView.frame.midX-(250/2), width: 375 , height : 250)
+            //let xCoordinate = nearIssueView.frame.midX + nearIssueView.frame.width * CGFloat(nScreen)
+            post.frame = CGRect(x:nScreen*375, y : Int(nearIssueView.frame.midY-(250/2)), width: 375 , height : 250)
             nearIssueScrollView.addSubview(post)
-            contentWidth +=  nearIssueScrollView.frame.width
+            contentWidth +=  nearIssueView.frame.width
             nScreen+=1
             
         }
-        nearIssueScrollView.contentSize = CGSize(width : contentWidth , height : nearIssueScrollView.frame.height)
+        nearIssueScrollView.contentSize = CGSize(width : contentWidth , height : nearIssueView.frame.height)
         nScreen = 0
         for post in recommendEventsView {
             post.thumbnailImage.image = UIImage(named : "LiveBeats")
@@ -75,6 +82,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate,UIScrollViewAc
             //let imageView = UIImageView(image : imageToDisplay)
             let xCoordinate = recommendIssueScrollView.frame.midX + recommendIssueScrollView.frame.width * CGFloat(nScreen)
             post.frame = CGRect(x:xCoordinate-(375/2), y : recommendIssueScrollView.frame.midX-(250/2), width: 375 , height : 250)
+            post.translatesAutoresizingMaskIntoConstraints = false
             recommendIssueScrollView.addSubview(post)
             contentWidth +=  recommendIssueScrollView.frame.width
             nScreen+=1

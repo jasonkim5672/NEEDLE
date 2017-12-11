@@ -35,7 +35,17 @@ class EventPostView: UIView {
         super.awakeFromNib()
         // Initialization code
     }
-     
+    func copyEvents(from: EventPostView){
+        self.authorLabel = from.authorLabel
+        self.profileImage = from.profileImage
+        self.titleLabel = from.titleLabel
+        self.thumbnailImage = from.thumbnailImage
+        self.summaryLabel = from.summaryLabel
+        self.dateLabel = from.dateLabel
+    }
+    
+    
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
