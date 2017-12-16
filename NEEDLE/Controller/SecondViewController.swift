@@ -13,11 +13,14 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     func updateSearchResults(for searchController: UISearchController) {
         
     }
-    
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
     
     var mapView: NMapView?
     var changeStateButton: UIButton?
     
+    @IBOutlet weak var addButton: UIButton!
     enum state {
         case disabled
         case tracking
@@ -40,6 +43,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         mapView = NMapView(frame: self.view.frame)
         
         
+
         if let mapView = mapView {
             
             
@@ -53,6 +57,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
             
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
+            
             view.addSubview(mapView)
         }
         
@@ -62,6 +67,9 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         if let button = changeStateButton {
             view.addSubview(button)
         }
+       
+            view.addSubview(addButton)
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -90,7 +98,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        enableLocationUpdate()
         mapView?.viewWillAppear()
     }
     
@@ -322,6 +330,22 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         
         
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        
+        return button
+    }
+    
+    func createAddButton() -> UIButton? {
+        
+        let button = UIButton(type: .custom)
+        if let mapView = self.mapView{
+        button.frame = CGRect(x: mapView.bounds.size.width-100, y: mapView.bounds.size.height-200, width: 80, height: 80)
+        }
+        //button.frame = CGRect(x: 354, y: 300, width: 30, height: 30)
+        button.setImage(UIImage(named:"addButton"), for: .normal)
+        button.imageView!.contentMode = UIViewContentMode.scaleAspectFill
+        
+        
+        //button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         
         return button
     }

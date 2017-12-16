@@ -45,6 +45,15 @@
 		E0F532C61FE42B1500221EF1 /* NowEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532C51FE42B1500221EF1 /* NowEventsViewController.swift */; };
 		E0F532C81FE42B2700221EF1 /* FinishedEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532C71FE42B2700221EF1 /* FinishedEventsViewController.swift */; };
 		E0F532CA1FE42F7100221EF1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F532C91FE42F7100221EF1 /* MapKit.framework */; };
+		E0F532CC1FE4F52F00221EF1 /* EventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532CB1FE4F52F00221EF1 /* EventInfoViewController.swift */; };
+		E0F532CE1FE4FC0800221EF1 /* EventPageTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532CD1FE4FC0800221EF1 /* EventPageTabBarController.swift */; };
+		E0F532D01FE5109300221EF1 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532CF1FE5109300221EF1 /* InfoTableViewCell.swift */; };
+		E0F532D21FE5561800221EF1 /* EventFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532D11FE5561800221EF1 /* EventFeedViewController.swift */; };
+		E0F532D41FE5562A00221EF1 /* EventPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532D31FE5562A00221EF1 /* EventPhotoViewController.swift */; };
+		E0F532D61FE5563800221EF1 /* EventFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532D51FE5563800221EF1 /* EventFileViewController.swift */; };
+		E0F532D91FE5564F00221EF1 /* EventQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532D81FE5564F00221EF1 /* EventQAViewController.swift */; };
+		E0F532DB1FE5775400221EF1 /* addEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532DA1FE5775400221EF1 /* addEventTableViewController.swift */; };
+		E0F532DF1FE5856500221EF1 /* UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F532DE1FE5856500221EF1 /* UnderlinedTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +111,15 @@
 		E0F532C51FE42B1500221EF1 /* NowEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowEventsViewController.swift; sourceTree = "<group>"; };
 		E0F532C71FE42B2700221EF1 /* FinishedEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedEventsViewController.swift; sourceTree = "<group>"; };
 		E0F532C91FE42F7100221EF1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E0F532CB1FE4F52F00221EF1 /* EventInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoViewController.swift; sourceTree = "<group>"; };
+		E0F532CD1FE4FC0800221EF1 /* EventPageTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPageTabBarController.swift; sourceTree = "<group>"; };
+		E0F532CF1FE5109300221EF1 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		E0F532D11FE5561800221EF1 /* EventFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFeedViewController.swift; sourceTree = "<group>"; };
+		E0F532D31FE5562A00221EF1 /* EventPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPhotoViewController.swift; sourceTree = "<group>"; };
+		E0F532D51FE5563800221EF1 /* EventFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFileViewController.swift; sourceTree = "<group>"; };
+		E0F532D81FE5564F00221EF1 /* EventQAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventQAViewController.swift; sourceTree = "<group>"; };
+		E0F532DA1FE5775400221EF1 /* addEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addEventTableViewController.swift; sourceTree = "<group>"; };
+		E0F532DE1FE5856500221EF1 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
 		E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NEEDLE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC540FF57B14E7205D371D1 /* Pods-NEEDLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +190,7 @@
 			children = (
 				E0D087DD1FCEF0B3005681CC /* FirstViewController.swift */,
 				E0D087DF1FCEF0B3005681CC /* SecondViewController.swift */,
+				E0F532DA1FE5775400221EF1 /* addEventTableViewController.swift */,
 				E0D087F01FCEF3C0005681CC /* ThirdViewController.swift */,
 				E0D087F21FCEF568005681CC /* FourthViewController.swift */,
 				E0D087F41FCEF579005681CC /* FifthViewController.swift */,
@@ -186,6 +205,12 @@
 				E0F532C31FE42AFB00221EF1 /* FollowerViewController.swift */,
 				E0F532C51FE42B1500221EF1 /* NowEventsViewController.swift */,
 				E0F532C71FE42B2700221EF1 /* FinishedEventsViewController.swift */,
+				E0F532CD1FE4FC0800221EF1 /* EventPageTabBarController.swift */,
+				E0F532CB1FE4F52F00221EF1 /* EventInfoViewController.swift */,
+				E0F532D11FE5561800221EF1 /* EventFeedViewController.swift */,
+				E0F532D31FE5562A00221EF1 /* EventPhotoViewController.swift */,
+				E0F532D51FE5563800221EF1 /* EventFileViewController.swift */,
+				E0F532D81FE5564F00221EF1 /* EventQAViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -200,6 +225,7 @@
 				E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */,
 				E09FB34C1FDC087F00D47536 /* EventPostCellTableViewCell.swift */,
 				E01203B71FDD69A500838638 /* EventPostView.swift */,
+				E0F532CF1FE5109300221EF1 /* InfoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +236,7 @@
 				E0D088021FCF1515005681CC /* UINavigationBar+gradient.swift */,
 				E0D088041FCF1553005681CC /* CAGradientLayer.swift */,
 				E0D088061FCF16E2005681CC /* UIColor+Ext.swift */,
+				E0F532DE1FE5856500221EF1 /* UnderlinedTextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -400,22 +427,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0F532C61FE42B1500221EF1 /* NowEventsViewController.swift in Sources */,
+				E0F532D01FE5109300221EF1 /* InfoTableViewCell.swift in Sources */,
 				E06176211FDAC56400E830CA /* loginScreenController.swift in Sources */,
 				E0D087F51FCEF579005681CC /* FifthViewController.swift in Sources */,
 				E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */,
+				E0F532D91FE5564F00221EF1 /* EventQAViewController.swift in Sources */,
 				E0D088051FCF1553005681CC /* CAGradientLayer.swift in Sources */,
 				E09FB3511FDC302700D47536 /* UpTabbarController.swift in Sources */,
 				E09FB34D1FDC087F00D47536 /* EventPostCellTableViewCell.swift in Sources */,
 				E02FDFA21FDBE0560092BB84 /* ProfileHeaderView.swift in Sources */,
 				E09FB34F1FDC15C800D47536 /* Event.swift in Sources */,
+				E0F532D21FE5561800221EF1 /* EventFeedViewController.swift in Sources */,
 				E0D087E01FCEF0B3005681CC /* SecondViewController.swift in Sources */,
 				E0F532BE1FE4219600221EF1 /* MessageAnnounceViewController.swift in Sources */,
 				E0F532C41FE42AFB00221EF1 /* FollowerViewController.swift in Sources */,
 				E02FDFA41FDBE0910092BB84 /* ProfilePageTableViewController.swift in Sources */,
 				E01203B81FDD69A500838638 /* EventPostView.swift in Sources */,
+				E0F532DF1FE5856500221EF1 /* UnderlinedTextField.swift in Sources */,
 				E0D088031FCF1515005681CC /* UINavigationBar+gradient.swift in Sources */,
 				E0EDA84A1FD2917B00A1A57E /* NMapViewResources.swift in Sources */,
 				E0F532C21FE429BF00221EF1 /* EventsTabBarController.swift in Sources */,
+				E0F532DB1FE5775400221EF1 /* addEventTableViewController.swift in Sources */,
+				E0F532D61FE5563800221EF1 /* EventFileViewController.swift in Sources */,
 				E0F532C81FE42B2700221EF1 /* FinishedEventsViewController.swift in Sources */,
 				E0D088071FCF16E2005681CC /* UIColor+Ext.swift in Sources */,
 				E0F532BC1FE4216B00221EF1 /* MessageAllViewController.swift in Sources */,
@@ -423,10 +456,13 @@
 				E0D087DC1FCEF0B3005681CC /* AppDelegate.swift in Sources */,
 				E0F532BA1FE4000F00221EF1 /* MessageTabBarController.swift in Sources */,
 				E0D087F11FCEF3C0005681CC /* ThirdViewController.swift in Sources */,
+				E0F532D41FE5562A00221EF1 /* EventPhotoViewController.swift in Sources */,
 				E0D087DE1FCEF0B3005681CC /* FirstViewController.swift in Sources */,
 				E0D087FA1FCF0C9B005681CC /* NeedleNavigationBar.swift in Sources */,
 				E0998E2B1FD30074003C97C0 /* menuListCell.swift in Sources */,
+				E0F532CE1FE4FC0800221EF1 /* EventPageTabBarController.swift in Sources */,
 				E0F532C01FE421AC00221EF1 /* MessageDirectViewController.swift in Sources */,
+				E0F532CC1FE4F52F00221EF1 /* EventInfoViewController.swift in Sources */,
 				E0D087F31FCEF568005681CC /* FourthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

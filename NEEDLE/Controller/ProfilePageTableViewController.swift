@@ -33,7 +33,7 @@ class ProfilePageTableViewController: UITableViewController {
                 // Get user value
                 if let Data = userData.value as? NSDictionary{
                     for row in Data as! [String:NSDictionary] {
-                        self.myEvents.append(Event.init(title: row.value["title"] as? String ?? " ",author : row.value["author"] as? String ?? " ", uid : user.uid, location: row.value["location"] as? String ?? " " , period : row.value["period"] as? String ?? " ",registerTime: row.value["registerTime"] as? String ?? " ",body : row.value["body"] as? String ?? " ",tag : row.value["tag"] as? String ?? " "))
+                        self.myEvents.append(Event.init(title: row.value["title"] as? String ?? " ",author : row.value["author"] as? String ?? " ", uid : user.uid, location: row.value["location"] as? String ?? " " , period : row.value["period"] as? String ?? " ",registerTime: row.value["registerTime"] as? String ?? " ",body : row.value["body"] as? String ?? " ",tag : row.value["tag"] as? String ?? " ",people : row.value["people"] as? String ?? " "))
                         print(row)
                     }
                 }
@@ -118,7 +118,25 @@ class ProfilePageTableViewController: UITableViewController {
         return true
     }
     */
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEvent" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let tabBarController = segue.destination as! EventPageTabBarController
+                let destinationController0 = tabBarController.viewControllers?[0] as! EventInfoViewController
+                let destinationController1 = tabBarController.viewControllers?[1] as! EventFeedViewController
+                let destinationController2 = tabBarController.viewControllers?[2] as! EventPhotoViewController
+                let destinationController3 = tabBarController.viewControllers?[3] as! EventFileViewController
+                let destinationController4 = tabBarController.viewControllers?[4] as! EventQAViewController
+                //destinationController.coverImage.image =  UIImage(named: "LiveBeats")
+                destinationController0.thisEvent = myEvents[indexPath.row]
+                destinationController1.thisEvent = myEvents[indexPath.row]
+                destinationController2.thisEvent = myEvents[indexPath.row]
+                destinationController3.thisEvent = myEvents[indexPath.row]
+                destinationController4.thisEvent = myEvents[indexPath.row]
+            }
+        }
+        
+    }
     /*
     // MARK: - Navigation
 

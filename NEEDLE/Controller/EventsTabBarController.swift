@@ -22,10 +22,10 @@ class EventsTabBarViewController: UITabBarController {
         super.viewDidLoad()
         self.tabBar.isHidden = true
         
-        customTabBarView.frame = CGRect(x:0, y:60, width:self.view.frame.size.width, height:50)
+        customTabBarView.frame = CGRect(x:0, y:60, width:self.view.frame.size.width, height:40)
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame =  CGRect(x: 0.0, y: -(self.navigationController?.view.frame.height)!, width: self.view.bounds.size.width, height: (self.navigationController?.view.frame.height)!+50)
+        gradientLayer.frame =  CGRect(x: 0.0, y: -(self.navigationController?.view.frame.height)!, width: self.view.bounds.size.width, height: (self.navigationController?.view.frame.height)!+40)
         
         let color1 = UIColor(red: 136, green: 128, blue: 216).cgColor
         let color2 = UIColor(red: 91, green: 143, blue: 191).cgColor
@@ -42,11 +42,11 @@ class EventsTabBarViewController: UITabBarController {
         
         
         tabBtn01.frame = CGRect(x:0, y:0, width: widthOfOneBtn,height: heightOfOneBtn)
-        btn1UnderLine.frame = CGRect(x:10,y:45,width: widthOfOneBtn-10,height:5)
+        btn1UnderLine.frame = CGRect(x:10,y:35,width: widthOfOneBtn-10,height:5)
         tabBtn02.frame = CGRect(x: widthOfOneBtn, y: 0, width:widthOfOneBtn, height: heightOfOneBtn)
-        btn2UnderLine.frame = CGRect(x:widthOfOneBtn+5,y:45,width:widthOfOneBtn-10,height:5)
+        btn2UnderLine.frame = CGRect(x:widthOfOneBtn+5,y:35,width:widthOfOneBtn-10,height:5)
         tabBtn03.frame = CGRect(x: widthOfOneBtn*2, y: 0, width:widthOfOneBtn, height: heightOfOneBtn)
-        btn3UnderLine.frame = CGRect(x:widthOfOneBtn*2+5,y:45,width:widthOfOneBtn-10,height:5)
+        btn3UnderLine.frame = CGRect(x:widthOfOneBtn*2+5,y:35,width:widthOfOneBtn-10,height:5)
         
         
         tabBtn01.setTitle("구독목록", for: .normal)
