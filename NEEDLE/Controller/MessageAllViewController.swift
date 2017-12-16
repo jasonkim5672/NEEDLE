@@ -1,14 +1,14 @@
 //
-//  ThirdViewController.swift
-//  niddle
+//  MessageAllViewController.swift
+//  NEEDLE
 //
-//  Created by Jason Kim on 2017. 11. 29..
+//  Created by Jason Kim on 2017. 12. 16..
 //  Copyright © 2017년 JasonKim. All rights reserved.
 //
 
 import UIKit
 
-class ThirdViewController: UINavigationController {
+class MessageAllViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,7 @@ class ThirdViewController: UINavigationController {
         colors.append(UIColor(red: 136, green: 128, blue: 216))
         colors.append(UIColor(red: 91, green: 143, blue: 191))
         navigationController?.navigationBar.setGradientBackground(colors: colors)
+        
         // Do any additional setup after loading the view.
     }
 

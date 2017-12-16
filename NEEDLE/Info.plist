@@ -60,6 +60,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>항상 위치정보를 사용하겠습니까?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>사용할 때 위치정보를 사용하겠습니까?</string>
 	<key>LSApplicationCategoryType</key>
 	<string>NSLocationWhenInUseUsageDescription</string>
 </dict>

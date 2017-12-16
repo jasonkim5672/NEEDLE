@@ -1,14 +1,14 @@
 //
-//  ThirdViewController.swift
-//  niddle
+//  MessageDirectViewController.swift
+//  NEEDLE
 //
-//  Created by Jason Kim on 2017. 11. 29..
+//  Created by Jason Kim on 2017. 12. 16..
 //  Copyright © 2017년 JasonKim. All rights reserved.
 //
 
 import UIKit
 
-class ThirdViewController: UINavigationController {
+class MessageDirectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

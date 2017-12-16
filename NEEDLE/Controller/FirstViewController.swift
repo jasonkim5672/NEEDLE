@@ -12,47 +12,42 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UIScrollViewDelegate,UIScrollViewAccessibilityDelegate{
+class FirstViewController: UITableViewController{
     var nearEvents : [Event] = []
     @IBOutlet weak var nearIssuePage: UIPageControl!
     @IBOutlet weak var nearIssueScrollView: UIScrollView!
     @IBOutlet var nearIssueView: EventPostView!
     @IBOutlet var nearIssueView2: EventPostView!
     var nearEventsView : [EventPostView] = []
-
+    
     @IBOutlet weak var recommendIssueScrollView: UIScrollView!
     @IBOutlet weak var recommendIssueView: EventPostView!
     var recommendEventsView : [EventPostView] = []
-    @IBOutlet var mainView: UIView!
-    var mainScrollView : UIScrollView! = nil
     var contentWidth :CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nearIssueScrollView.delegate=self
-        recommendIssueScrollView.delegate=self
-
+        //nearIssueScrollView.delegate=self
+        //recommendIssueScrollView.delegate=self
+        
         // Do any additional setup after loading the view, typically from a nib.
         //self.gradienBackground(from: UIColor(red:120/255,green:0/255,blue:255/255,alpha:1.0),to: UIColor(red:0/255,green:0/255,blue:255/255,alpha:1.0),direction : 1)
-        mainScrollView = UIScrollView.init(frame: CGRect(x:0,y:0,width: self.mainView.frame.width,height:self.mainView.frame.height ))
-        mainScrollView.contentSize = CGSize(width : self.mainView.frame.width,height:self.mainView.frame.height  )
-        mainScrollView.addSubview(mainView)
-        mainScrollView.isScrollEnabled=true
+       
         var colors = [UIColor]()
         colors.append(UIColor(red: 136, green: 128, blue: 216))
         colors.append(UIColor(red: 91, green: 143, blue: 191))
         navigationController?.navigationBar.setGradientBackground(colors: colors)
         var nScreen : Int = 0
         
-            //var anotherPage = nearIssueView2!
-            //anotherPage.copyEvents(from: nearIssueView)
-            
-            //var anotherPage2 : EventPostView!
-            //anotherPage2.copyEvents(from: recommendIssueView)
-            
-            nearEventsView.append(nearIssueView)
-            nearEventsView.append(nearIssueView2)
-            recommendEventsView.append(recommendIssueView)
+        //var anotherPage = nearIssueView2!
+        //anotherPage.copyEvents(from: nearIssueView)
+        
+        //var anotherPage2 : EventPostView!
+        //anotherPage2.copyEvents(from: recommendIssueView)
+        
+        nearEventsView.append(nearIssueView)
+        nearEventsView.append(nearIssueView2)
+        recommendEventsView.append(recommendIssueView)
         
         
         for post in nearEventsView {
@@ -91,16 +86,17 @@ class FirstViewController: UIViewController, UIScrollViewDelegate,UIScrollViewAc
         recommendIssueScrollView.contentSize = CGSize(width : contentWidth , height : recommendIssueScrollView.frame.height)
         
     }
+    /*
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+     nearIssuePage.currentPage = Int(nearIssueScrollView.contentOffset.x / CGFloat(375))
+     }
+     */
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        nearIssuePage.currentPage = Int(nearIssueScrollView.contentOffset.x / CGFloat(375))
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
