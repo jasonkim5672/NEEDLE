@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		204680FDE15B9F19EA504E92 /* Pods_NEEDLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB626AD7BDBA0220CCA67130 /* Pods_NEEDLE.framework */; };
 		A8875AA01FE69617004512C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8875A9F1FE69617004512C5 /* Constants.swift */; };
+		A8875AA21FE69A67004512C5 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8875AA11FE69A67004512C5 /* ChatTableViewCell.swift */; };
+		A8875AA41FE69AF8004512C5 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8875AA31FE69AF8004512C5 /* ChatRoom.swift */; };
 		A8C5F96C1FE6571300E49D85 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C5F96B1FE6571300E49D85 /* ChatViewController.swift */; };
 		E01203B81FDD69A500838638 /* EventPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01203B71FDD69A500838638 /* EventPostView.swift */; };
 		E02FDFA21FDBE0560092BB84 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */; };
@@ -75,6 +77,8 @@
 /* Begin PBXFileReference section */
 		781FE9419F45003A51708488 /* Pods-NEEDLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.release.xcconfig"; sourceTree = "<group>"; };
 		A8875A9F1FE69617004512C5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A8875AA11FE69A67004512C5 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		A8875AA31FE69AF8004512C5 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		A8C5F96B1FE6571300E49D85 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		B2074370684790E0ADEB605B /* Pods-NEEDLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.debug.xcconfig"; sourceTree = "<group>"; };
 		E01203B71FDD69A500838638 /* EventPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPostView.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				E09FB34C1FDC087F00D47536 /* EventPostCellTableViewCell.swift */,
 				E01203B71FDD69A500838638 /* EventPostView.swift */,
 				E0F532CF1FE5109300221EF1 /* InfoTableViewCell.swift */,
+				A8875AA11FE69A67004512C5 /* ChatTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			children = (
 				E0EDA8491FD2917B00A1A57E /* NMapViewResources.swift */,
 				E09FB34E1FDC15C800D47536 /* Event.swift */,
+				A8875AA31FE69AF8004512C5 /* ChatRoom.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */,
 				E0F532D91FE5564F00221EF1 /* EventQAViewController.swift in Sources */,
 				E071697F1FE673F500BEE09A /* SignUpPageViewController.swift in Sources */,
+				A8875AA21FE69A67004512C5 /* ChatTableViewCell.swift in Sources */,
 				E0D088051FCF1553005681CC /* CAGradientLayer.swift in Sources */,
 				E09FB3511FDC302700D47536 /* UpTabbarController.swift in Sources */,
 				E09FB34D1FDC087F00D47536 /* EventPostCellTableViewCell.swift in Sources */,
@@ -472,6 +479,7 @@
 				E0F532D41FE5562A00221EF1 /* EventPhotoViewController.swift in Sources */,
 				E0D087DE1FCEF0B3005681CC /* FirstViewController.swift in Sources */,
 				E0D087FA1FCF0C9B005681CC /* NeedleNavigationBar.swift in Sources */,
+				A8875AA41FE69AF8004512C5 /* ChatRoom.swift in Sources */,
 				E0998E2B1FD30074003C97C0 /* menuListCell.swift in Sources */,
 				E0F532CE1FE4FC0800221EF1 /* EventPageTabBarController.swift in Sources */,
 				E0F532CC1FE4F52F00221EF1 /* EventInfoViewController.swift in Sources */,

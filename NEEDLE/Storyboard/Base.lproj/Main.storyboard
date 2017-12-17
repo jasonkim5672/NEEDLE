@@ -850,7 +850,7 @@
         <!--회원가입-->
         <scene sceneID="Rmd-cA-HaQ">
             <objects>
-                <viewController id="CUt-37-50H" customClass="SignUpPageViewController" customModule="NEEDLE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="CUt-37-50H" customClass="SignUpPageViewController" customModule="NEEDLE" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vyg-cO-KQy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -969,7 +969,7 @@
         <!--로그인-->
         <scene sceneID="RrD-uI-7Om">
             <objects>
-                <viewController id="JDC-iw-Cuh" customClass="SignInPageViewController" customModule="NEEDLE" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="JDC-iw-Cuh" customClass="SignInPageViewController" customModule="NEEDLE" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5dn-rf-8QA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2238,13 +2238,13 @@
                                 <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o1Q-Nm-jsI">
                                     <rect key="frame" x="0.0" y="108" width="375" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="채팅창 테스트"/>
+                                    <state key="normal" title="공개 대화방 참여"/>
                                     <connections>
                                         <segue destination="mRR-Qq-mq3" kind="show" id="Xjv-Rr-yw6"/>
                                     </connections>
                                 </button>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="zaU-wW-ISk" customClass="RestaurantTableViewCell" customModule="NEEDLE" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="zaU-wW-ISk" customClass="ChatTableViewCell" customModule="NEEDLE" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zaU-wW-ISk" id="9J3-wY-lY4">
@@ -2254,7 +2254,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-g4-5JQ">
                                                     <rect key="frame" x="6" y="2" width="369" height="76"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wrT-9q-3xG">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BW" translatesAutoresizingMaskIntoConstraints="NO" id="wrT-9q-3xG">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="12R-NT-0Pc"/>
@@ -2264,14 +2264,14 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="YXP-h5-UVz">
                                                             <rect key="frame" x="75" y="0.0" width="294" height="39.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Age-QU-1bs">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="47" height="20.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="방이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Age-QU-1bs">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="44.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LK-Pa-baK">
-                                                                    <rect key="frame" x="0.0" y="21.5" width="59" height="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대화내용 표시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LK-Pa-baK">
+                                                                    <rect key="frame" x="0.0" y="21.5" width="82" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
@@ -2290,8 +2290,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="locationLabel" destination="9LK-Pa-baK" id="BOA-rA-qUF"/>
-                                            <outlet property="nameLabel" destination="Age-QU-1bs" id="ArM-f3-8xM"/>
-                                            <outlet property="thumbnailImageView" destination="wrT-9q-3xG" id="I2k-jH-86Q"/>
+                                            <outlet property="nameLabel" destination="Age-QU-1bs" id="Hyo-gF-VwE"/>
+                                            <outlet property="subLabel" destination="9LK-Pa-baK" id="Ce2-8c-agI"/>
+                                            <outlet property="thumbnailImageView" destination="wrT-9q-3xG" id="PyM-BJ-5qh"/>
                                             <segue destination="mRR-Qq-mq3" kind="show" id="eX1-41-NAp"/>
                                         </connections>
                                     </tableViewCell>
@@ -2543,6 +2544,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BW" width="108" height="111"/>
         <image name="Calendar" width="18" height="18"/>
         <image name="addButton" width="90" height="90"/>
         <image name="back" width="29" height="17"/>
