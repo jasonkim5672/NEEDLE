@@ -2245,14 +2245,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tif-Dw-73S">
                                 <rect key="frame" x="0.0" y="104" width="375" height="465"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o1Q-Nm-jsI">
-                                    <rect key="frame" x="0.0" y="108" width="375" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="공개 대화방 참여"/>
-                                    <connections>
-                                        <segue destination="mRR-Qq-mq3" kind="show" id="Xjv-Rr-yw6"/>
-                                    </connections>
-                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="zaU-wW-ISk" customClass="ChatTableViewCell" customModule="NEEDLE" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
@@ -2299,11 +2291,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="locationLabel" destination="9LK-Pa-baK" id="BOA-rA-qUF"/>
-                                            <outlet property="nameLabel" destination="Age-QU-1bs" id="Hyo-gF-VwE"/>
-                                            <outlet property="subLabel" destination="9LK-Pa-baK" id="Ce2-8c-agI"/>
-                                            <outlet property="thumbnailImageView" destination="wrT-9q-3xG" id="PyM-BJ-5qh"/>
-                                            <segue destination="mRR-Qq-mq3" kind="show" id="eX1-41-NAp"/>
+                                            <outlet property="nameLabel" destination="Age-QU-1bs" id="31a-H1-2ub"/>
+                                            <outlet property="subLabel" destination="9LK-Pa-baK" id="3HW-JZ-dQb"/>
+                                            <outlet property="thumbnailImageView" destination="wrT-9q-3xG" id="UiG-6W-vJ8"/>
+                                            <segue destination="mRR-Qq-mq3" kind="show" identifier="showChatDetail" id="YNP-h4-gbb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2320,7 +2311,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="niQ-zM-24J"/>
                     <connections>
-                        <outlet property="testButton" destination="o1Q-Nm-jsI" id="Zol-H9-VQS"/>
+                        <outlet property="chatListView" destination="tif-Dw-73S" id="8VN-eq-v5L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXq-1y-IpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2574,7 +2565,6 @@
         <image name="tick" width="23" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xjv-Rr-yw6"/>
         <segue reference="Ae2-GC-WMd"/>
     </inferredMetricsTieBreakers>
 </document>

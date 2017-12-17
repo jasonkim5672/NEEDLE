@@ -22,6 +22,7 @@ struct Constants
 
 class ChatViewController: JSQMessagesViewController
 {
+    var myChat = ChatRoom()
     /// This array will store all the messages shown on screen
     var messages = [JSQMessage]()
     
@@ -39,6 +40,7 @@ class ChatViewController: JSQMessagesViewController
     {
         super.viewDidLoad()
         
+        Constants.refs.databaseChats = Constants.refs.databaseRoot.child("chats/talk/"+myChat.uid)
         let defaults = UserDefaults.standard
         
         // First, check the defaults if an ID and display name are set
@@ -52,7 +54,7 @@ class ChatViewController: JSQMessagesViewController
         
         // Set the navigation bar title
         // 대화중인 상대 설정
-        title = "\(senderDisplayName!)"
+        title = "\(myChat.name)"
         
         //navigationController?.navigationBar.addGestureRecognizer(tapGesture)
         
