@@ -2216,8 +2216,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="dyV-6n-w47" kind="relationship" relationship="viewControllers" id="Ae2-GC-WMd"/>
-                        <segue destination="gDk-BO-TFa" kind="relationship" relationship="viewControllers" id="ciV-bl-MRc"/>
-                        <segue destination="K4o-s8-J3z" kind="relationship" relationship="viewControllers" id="APg-pA-Pqm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fE-P6-ncK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2312,62 +2310,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXq-1y-IpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4172" y="1051.1244377811095"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="8Nl-zJ-ar6">
-            <objects>
-                <viewController id="gDk-BO-TFa" customClass="MessageAnnounceViewController" customModule="NEEDLE" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pA8-9z-bm8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x1M-xz-1m5">
-                                <rect key="frame" x="0.0" y="104" width="375" height="465"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="x1M-xz-1m5" firstAttribute="leading" secondItem="nb1-fm-Yxf" secondAttribute="leading" id="2Ka-b9-Vkh"/>
-                            <constraint firstItem="nb1-fm-Yxf" firstAttribute="trailing" secondItem="x1M-xz-1m5" secondAttribute="trailing" id="Cwh-94-5xG"/>
-                            <constraint firstItem="x1M-xz-1m5" firstAttribute="top" secondItem="nb1-fm-Yxf" secondAttribute="top" constant="40" id="UzV-0g-2CD"/>
-                            <constraint firstItem="nb1-fm-Yxf" firstAttribute="bottom" secondItem="x1M-xz-1m5" secondAttribute="bottom" id="hcs-3q-RsF"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="nb1-fm-Yxf"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="sxx-ej-dnu"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IB5-2O-pnn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3720.8000000000002" y="1952.473763118441"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="69p-9f-9tE">
-            <objects>
-                <viewController id="K4o-s8-J3z" customClass="MessageDirectViewController" customModule="NEEDLE" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="la2-kB-5l4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BN8-EG-3Zd">
-                                <rect key="frame" x="0.0" y="104" width="375" height="465"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BN8-EG-3Zd" firstAttribute="leading" secondItem="YuT-5n-Hey" secondAttribute="leading" id="IfZ-ys-Vaq"/>
-                            <constraint firstItem="YuT-5n-Hey" firstAttribute="bottom" secondItem="BN8-EG-3Zd" secondAttribute="bottom" id="Uyq-PR-qcm"/>
-                            <constraint firstItem="BN8-EG-3Zd" firstAttribute="top" secondItem="YuT-5n-Hey" secondAttribute="top" constant="40" id="mXO-aX-s1J"/>
-                            <constraint firstItem="YuT-5n-Hey" firstAttribute="trailing" secondItem="BN8-EG-3Zd" secondAttribute="trailing" id="vAZ-pa-Ox5"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="YuT-5n-Hey"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="T8P-0d-1by"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ff8-p6-jLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2860" y="2159.3703148425789"/>
         </scene>
         <!--My Events-->
         <scene sceneID="rfS-UO-Qzo">
