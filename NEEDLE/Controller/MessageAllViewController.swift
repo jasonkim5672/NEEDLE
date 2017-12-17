@@ -79,7 +79,7 @@ class MessageAllViewController: UIViewController {
             }
           
         }else{
-          alertFunc("로그인이 필요합니다.", "권한경고")
+          //alertFunc("로그인이 필요합니다.", "권한경고")
           chatUserId = "0"
           chatUserName = "비회원"
         }
