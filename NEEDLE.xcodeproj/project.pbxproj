@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15B71610BBE44E7A8F3ACF0C /* Pods_NEEDLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */; };
+		204680FDE15B9F19EA504E92 /* Pods_NEEDLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB626AD7BDBA0220CCA67130 /* Pods_NEEDLE.framework */; };
 		A8C5F96C1FE6571300E49D85 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C5F96B1FE6571300E49D85 /* ChatViewController.swift */; };
 		E01203B81FDD69A500838638 /* EventPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01203B71FDD69A500838638 /* EventPostView.swift */; };
 		E02FDFA21FDBE0560092BB84 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */; };
 		E02FDFA41FDBE0910092BB84 /* ProfilePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */; };
 		E06176211FDAC56400E830CA /* loginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06176201FDAC56400E830CA /* loginScreenController.swift */; };
+		E071697D1FE673DF00BEE09A /* SignInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071697C1FE673DF00BEE09A /* SignInPageViewController.swift */; };
+		E071697F1FE673F500BEE09A /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071697E1FE673F500BEE09A /* SignUpPageViewController.swift */; };
 		E07A201A1FD2E2C1003DE64C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */; };
 		E0998E2B1FD30074003C97C0 /* menuListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0998E2A1FD30074003C97C0 /* menuListCell.swift */; };
 		E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */; };
@@ -72,12 +74,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.debug.xcconfig"; sourceTree = "<group>"; };
+		781FE9419F45003A51708488 /* Pods-NEEDLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.release.xcconfig"; sourceTree = "<group>"; };
 		A8C5F96B1FE6571300E49D85 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		B2074370684790E0ADEB605B /* Pods-NEEDLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.debug.xcconfig"; sourceTree = "<group>"; };
 		E01203B71FDD69A500838638 /* EventPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPostView.swift; sourceTree = "<group>"; };
 		E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewController.swift; sourceTree = "<group>"; };
 		E06176201FDAC56400E830CA /* loginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginScreenController.swift; sourceTree = "<group>"; };
+		E071697C1FE673DF00BEE09A /* SignInPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPageViewController.swift; sourceTree = "<group>"; };
+		E071697E1FE673F500BEE09A /* SignUpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
 		E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0998E2A1FD30074003C97C0 /* menuListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuListCell.swift; sourceTree = "<group>"; };
 		E0998E2E1FD30DF8003C97C0 /* loginAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginAreaView.swift; sourceTree = "<group>"; };
@@ -122,8 +127,7 @@
 		E0F532D81FE5564F00221EF1 /* EventQAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventQAViewController.swift; sourceTree = "<group>"; };
 		E0F532DA1FE5775400221EF1 /* addEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addEventTableViewController.swift; sourceTree = "<group>"; };
 		E0F532DE1FE5856500221EF1 /* UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedTextField.swift; sourceTree = "<group>"; };
-		E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NEEDLE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBC540FF57B14E7205D371D1 /* Pods-NEEDLE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.release.xcconfig"; sourceTree = "<group>"; };
+		FB626AD7BDBA0220CCA67130 /* Pods_NEEDLE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NEEDLE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,18 +138,18 @@
 				E0EDA8441FD28DB400A1A57E /* ApiGatewayMac.framework in Frameworks */,
 				E0EDA8421FD28D1100A1A57E /* NMapViewerSDK.framework in Frameworks */,
 				E0F532CA1FE42F7100221EF1 /* MapKit.framework in Frameworks */,
-				15B71610BBE44E7A8F3ACF0C /* Pods_NEEDLE.framework in Frameworks */,
+				204680FDE15B9F19EA504E92 /* Pods_NEEDLE.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6ED1D634830A3E38874EBCDA /* Pods */ = {
+		2D0707CF5014977B55D22E1D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */,
-				FBC540FF57B14E7205D371D1 /* Pods-NEEDLE.release.xcconfig */,
+				B2074370684790E0ADEB605B /* Pods-NEEDLE.debug.xcconfig */,
+				781FE9419F45003A51708488 /* Pods-NEEDLE.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -157,7 +161,7 @@
 				E0D087DA1FCEF0B3005681CC /* NEEDLE */,
 				E0D087D91FCEF0B3005681CC /* Products */,
 				E0EDA83E1FD28BF500A1A57E /* Frameworks */,
-				6ED1D634830A3E38874EBCDA /* Pods */,
+				2D0707CF5014977B55D22E1D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,6 +218,8 @@
 				E0F532D51FE5563800221EF1 /* EventFileViewController.swift */,
 				E0F532D81FE5564F00221EF1 /* EventQAViewController.swift */,
 				A8C5F96B1FE6571300E49D85 /* ChatViewController.swift */,
+				E071697C1FE673DF00BEE09A /* SignInPageViewController.swift */,
+				E071697E1FE673F500BEE09A /* SignUpPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,7 +272,7 @@
 			children = (
 				E0F532C91FE42F7100221EF1 /* MapKit.framework */,
 				E0EDA8411FD28D1100A1A57E /* NMapViewerSDK.framework */,
-				E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */,
+				FB626AD7BDBA0220CCA67130 /* Pods_NEEDLE.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,14 +284,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0D087EC1FCEF0B3005681CC /* Build configuration list for PBXNativeTarget "NEEDLE" */;
 			buildPhases = (
-				60A60A426D7C94E118EF1139 /* [CP] Check Pods Manifest.lock */,
+				33F80F16ED4FBD61B63CEBD8 /* [CP] Check Pods Manifest.lock */,
 				E0D087D41FCEF0B3005681CC /* Sources */,
 				E0D087D51FCEF0B3005681CC /* Frameworks */,
 				E0D087D61FCEF0B3005681CC /* Resources */,
 				E0EDA8461FD28DB500A1A57E /* Embed Frameworks */,
 				E0EDA8471FD28DDC00A1A57E /* ShellScript */,
-				CB7879B458E4C06BDB549BF0 /* [CP] Embed Pods Frameworks */,
-				802A0926D680ECA1D32E1733 /* [CP] Copy Pods Resources */,
+				D66516B2D24C10B9D1E32341 /* [CP] Embed Pods Frameworks */,
+				B00E2E7771D9E697DB137402 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -350,7 +356,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		60A60A426D7C94E118EF1139 /* [CP] Check Pods Manifest.lock */ = {
+		33F80F16ED4FBD61B63CEBD8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -368,7 +374,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		802A0926D680ECA1D32E1733 /* [CP] Copy Pods Resources */ = {
+		B00E2E7771D9E697DB137402 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -383,7 +389,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB7879B458E4C06BDB549BF0 /* [CP] Embed Pods Frameworks */ = {
+		D66516B2D24C10B9D1E32341 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -439,6 +445,7 @@
 				E0D087F51FCEF579005681CC /* FifthViewController.swift in Sources */,
 				E0998E2F1FD30DF8003C97C0 /* loginAreaView.swift in Sources */,
 				E0F532D91FE5564F00221EF1 /* EventQAViewController.swift in Sources */,
+				E071697F1FE673F500BEE09A /* SignUpPageViewController.swift in Sources */,
 				E0D088051FCF1553005681CC /* CAGradientLayer.swift in Sources */,
 				E09FB3511FDC302700D47536 /* UpTabbarController.swift in Sources */,
 				E09FB34D1FDC087F00D47536 /* EventPostCellTableViewCell.swift in Sources */,
@@ -446,6 +453,7 @@
 				E09FB34F1FDC15C800D47536 /* Event.swift in Sources */,
 				E0F532D21FE5561800221EF1 /* EventFeedViewController.swift in Sources */,
 				E0D087E01FCEF0B3005681CC /* SecondViewController.swift in Sources */,
+				E071697D1FE673DF00BEE09A /* SignInPageViewController.swift in Sources */,
 				E0F532BE1FE4219600221EF1 /* MessageAnnounceViewController.swift in Sources */,
 				E0F532C41FE42AFB00221EF1 /* FollowerViewController.swift in Sources */,
 				E02FDFA41FDBE0910092BB84 /* ProfilePageTableViewController.swift in Sources */,
@@ -606,11 +614,11 @@
 		};
 		E0D087ED1FCEF0B3005681CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */;
+			baseConfigurationReference = B2074370684790E0ADEB605B /* Pods-NEEDLE.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5N9K27U97;
+				DEVELOPMENT_TEAM = CWW8335878;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -625,7 +633,7 @@
 					"-lxml2",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.joyjune;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ssu.needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/NEEDLE/NMHeader.h";
 				SWIFT_VERSION = 4.0;
@@ -635,11 +643,11 @@
 		};
 		E0D087EE1FCEF0B3005681CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBC540FF57B14E7205D371D1 /* Pods-NEEDLE.release.xcconfig */;
+			baseConfigurationReference = 781FE9419F45003A51708488 /* Pods-NEEDLE.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5N9K27U97;
+				DEVELOPMENT_TEAM = CWW8335878;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -654,7 +662,7 @@
 					"-lxml2",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.joyjune;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ssu.needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/NEEDLE/NMHeader.h";
 				SWIFT_VERSION = 4.0;

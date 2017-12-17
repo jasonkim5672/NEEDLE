@@ -33,9 +33,7 @@ class UpTabbarController: UITabBarController {
         
         let widthOfOneBtn = self.tabBar.frame.size.width/2
         let heightOfOneBtn = self.customTabBarView.frame.height
-        
-        
-        
+       
         tabBtn01.frame = CGRect(x:0, y:0, width: widthOfOneBtn, height: heightOfOneBtn)
         tabBtn02.frame = CGRect(x: widthOfOneBtn, y: 0, width :widthOfOneBtn, height : heightOfOneBtn)
         

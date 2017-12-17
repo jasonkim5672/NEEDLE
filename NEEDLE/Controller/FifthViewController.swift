@@ -157,20 +157,17 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
                 //loginArea.userPhoto.image = UIImage(named: "defaultUser")
                 loginArea.userPhoto.image = UIImage(named: "BW")
             }
-            /*
+            let rootRef = Database.database().reference()
+
             rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
                 // Get user value
                 let value = userData.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 self.loginArea.userName.setTitle(username + " 님",for: .normal)
             }) { (error) in
-                print(error.localizedDescription)
-             }*/
-            if let username = self.username{
-                self.loginArea.userName.setTitle(username + " 님",for: .normal)
-            }else{
                 self.loginArea.userName.setTitle(" ",for: .normal)
-            }
+                print(error.localizedDescription)
+             }
             self.loginArea.userNumber.text = user.email
             loginArea.isUserInteractionEnabled=false
             logOutButton.isHidden=false

@@ -17,7 +17,9 @@ class loginScreenController: UIViewController {
     @IBOutlet var signUpButton:UIButton!
     @IBOutlet var facebookSignInButton:UIButton!
    
-  
+    @IBAction func backToLoginScreen(segue: UIStoryboardSegue){
+        dismiss(animated: true, completion: nil)
+    }
 
     
     override func viewDidLoad() {
