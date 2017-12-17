@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//UIViewController,
 class MessageTabBarController: UITabBarController {
     let customTabBarView = UIView()
     let tabBtn01 = UIButton()
@@ -16,7 +16,7 @@ class MessageTabBarController: UITabBarController {
     let btn1UnderLine = UIView()
     let btn2UnderLine = UIView()
     let btn3UnderLine = UIView()
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.isHidden = true
@@ -71,32 +71,30 @@ class MessageTabBarController: UITabBarController {
         setAttributeTabBarButton(tabBtn02)
         setAttributeTabBarButton(tabBtn03)
         
-        
         self.view.addSubview(customTabBarView)
         
-        
-        
-    
         // Do any additional setup after loading the view.
     }
     
     func setAttributeTabBarButton(_ btn : UIButton)
-        
     {
         btn.addTarget(self, action: #selector(onBtnClick(sender:)), for: UIControlEvents.touchUpInside)
-        
+        //btn.addTarget(self, action: #selector(pushToNext(sender:)), for: .touchUpInside)
         btn.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        
         btn.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .selected)
-        
         self.customTabBarView.addSubview(btn)
         
     }
     
+    func pushToNext(sender : UIButton) {
+       
+    }
+    
     
     @objc func onBtnClick(sender : UIButton)
-        
     {
+        selectMessageItem = sender.tag
+        
         
         self.tabBtn01.isSelected = false
         self.tabBtn02.isSelected = false
@@ -104,11 +102,9 @@ class MessageTabBarController: UITabBarController {
         self.btn1UnderLine.isHidden = true
         self.btn2UnderLine.isHidden = true
         self.btn3UnderLine.isHidden = true
-        
         sender.isSelected = true
-        
-        
-          self.selectedIndex = sender.tag
+      
+        self.selectedIndex = sender.tag
         switch sender.tag{
         case 0:
             self.btn1UnderLine.isHidden = false
@@ -118,10 +114,12 @@ class MessageTabBarController: UITabBarController {
             self.btn3UnderLine.isHidden = false
         default:
             print("sth wrong")
+            
         }
         
+        
+        
     }
-    
     
     
 
@@ -129,6 +127,7 @@ class MessageTabBarController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

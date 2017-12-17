@@ -15,7 +15,8 @@ struct Constants
     struct refs
     {
         static let databaseRoot = Database.database().reference()
-        static let databaseChats = databaseRoot.child("chats")
+        //채팅방 아이디 찾아서 들어가도록 바꿀것!
+        static var databaseChats = databaseRoot.child("chats")
     }
 }
 
@@ -24,14 +25,14 @@ class ChatViewController: JSQMessagesViewController
     /// This array will store all the messages shown on screen
     var messages = [JSQMessage]()
     
-    /// Lazy computed property for painting outgoing messages blue
+    //메세지 전송색상
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     }()
     
-    /// Lazy computed property for painting incoming messages gray
+    //메세지 도착색상
     lazy var incomingBubble: JSQMessagesBubbleImage = {
-        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }()
     
     override func viewDidLoad()
@@ -69,17 +70,15 @@ class ChatViewController: JSQMessagesViewController
         // Add a tap gesture to the navigation bar, to bring up the name dialog when tapping
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showDisplayNameDialog))
         tapGesture.numberOfTapsRequired = 1
-        
         //navigationController?.navigationBar.addGestureRecognizer(tapGesture)
+        
         navigationController?.navigationBar.tintColor = .white
         
-        // Remove the message bubble avatars, and the attachment button
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        // Prepare the Firebase query: all latest chat data limited to 10 items
-        let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
+        let query = Constants.refs.databaseChats.queryLimited(toLast: 30)
         
         // Observe the query for changes, and if a child is added, call the snapshot closure
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
@@ -168,6 +167,27 @@ class ChatViewController: JSQMessagesViewController
         // Return the number of messages
         return messages.count
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        
+        let message = self.messages[indexPath.item]
+        
+        var isOutgoing = false
+        
+        if message.senderId == self.senderId {
+            isOutgoing = true
+        }
+        
+        if isOutgoing {
+            cell.textView.textColor = UIColor.white
+        } else {
+            cell.textView.textColor = UIColor.black
+        }
+        
+        return cell
+    }
+    
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource!
     {

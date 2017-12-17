@@ -2216,11 +2216,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="dyV-6n-w47" kind="relationship" relationship="viewControllers" id="Ae2-GC-WMd"/>
+                        <segue destination="dyV-6n-w47" kind="relationship" relationship="viewControllers" id="cLc-lD-SEy"/>
+                        <segue destination="dyV-6n-w47" kind="relationship" relationship="viewControllers" id="0IU-y2-MAn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fE-P6-ncK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2832.8000000000002" y="787.55622188905556"/>
+            <point key="canvasLocation" x="2969" y="788"/>
         </scene>
         <!--Item-->
         <scene sceneID="qCM-ll-1lo">
@@ -2306,6 +2308,9 @@
                         <viewLayoutGuide key="safeArea" id="yTy-W5-1eR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="niQ-zM-24J"/>
+                    <connections>
+                        <outlet property="testButton" destination="o1Q-Nm-jsI" id="Zol-H9-VQS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXq-1y-IpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2557,6 +2562,7 @@
         <image name="tick" width="23" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eX1-41-NAp"/>
+        <segue reference="Xjv-Rr-yw6"/>
+        <segue reference="Ae2-GC-WMd"/>
     </inferredMetricsTieBreakers>
 </document>
