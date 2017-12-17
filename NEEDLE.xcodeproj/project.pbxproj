@@ -417,7 +417,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/Users/jasonkim/git/NEEDLE/Scripts/strip-frameworks.sh";
+			shellScript = "${SRCROOT}/Scripts/strip-frameworks.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -602,7 +602,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CWW8335878;
+				DEVELOPMENT_TEAM = B5N9K27U97;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -617,9 +617,9 @@
 					"-lxml2",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ssu.needle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joyjune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/jasonkim/git/NEEDLE/NEEDLE/NMHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/NEEDLE/NMHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -631,7 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CWW8335878;
+				DEVELOPMENT_TEAM = B5N9K27U97;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -646,9 +646,9 @@
 					"-lxml2",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kr.ac.ssu.needle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joyjune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/jasonkim/git/NEEDLE/NEEDLE/NMHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/NEEDLE/NMHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

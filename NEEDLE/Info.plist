@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -22,8 +20,23 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>NSLocationWhenInUseUsageDescription</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>카메라에 접근을 허용하시겠습니까?</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>항상 위치정보를 사용하겠습니까?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>사용할 때 위치정보를 사용하겠습니까?</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>사진첩에 접근을 허용하시겠습니까?</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -55,20 +68,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>항상 위치정보를 사용하겠습니까?</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>사용할 때 위치정보를 사용하겠습니까?</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>사진첩에 접근을 허용하시겠습니까?</string>
-	<key>NSCameraUsageDescription</key>
-	<string>카메라에 접근을 허용하시겠습니까?</string>
-	<key>LSApplicationCategoryType</key>
-	<string>NSLocationWhenInUseUsageDescription</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
