@@ -10,5 +10,7 @@ target 'NEEDLE' do
 	pod 'Firebase/Storage'
 	pod 'Firebase/Auth'
   # Pods for NEEDLE
+	pod 'JSQMessagesViewController'
+
 
 end

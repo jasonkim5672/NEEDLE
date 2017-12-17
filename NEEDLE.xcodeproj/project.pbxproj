@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15B71610BBE44E7A8F3ACF0C /* Pods_NEEDLE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EA9C49C98B403BCE492800 /* Pods_NEEDLE.framework */; };
+		A8C5F96C1FE6571300E49D85 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C5F96B1FE6571300E49D85 /* ChatViewController.swift */; };
 		E01203B81FDD69A500838638 /* EventPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01203B71FDD69A500838638 /* EventPostView.swift */; };
 		E02FDFA21FDBE0560092BB84 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */; };
 		E02FDFA41FDBE0910092BB84 /* ProfilePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */; };
@@ -72,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		734AB1F1FE73453CB3079EEB /* Pods-NEEDLE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEEDLE.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE.debug.xcconfig"; sourceTree = "<group>"; };
+		A8C5F96B1FE6571300E49D85 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E01203B71FDD69A500838638 /* EventPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPostView.swift; sourceTree = "<group>"; };
 		E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				E0F532D31FE5562A00221EF1 /* EventPhotoViewController.swift */,
 				E0F532D51FE5563800221EF1 /* EventFileViewController.swift */,
 				E0F532D81FE5564F00221EF1 /* EventQAViewController.swift */,
+				A8C5F96B1FE6571300E49D85 /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -389,6 +392,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -397,6 +402,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -448,6 +455,7 @@
 				E0EDA84A1FD2917B00A1A57E /* NMapViewResources.swift in Sources */,
 				E0F532C21FE429BF00221EF1 /* EventsTabBarController.swift in Sources */,
 				E0F532DB1FE5775400221EF1 /* addEventTableViewController.swift in Sources */,
+				A8C5F96C1FE6571300E49D85 /* ChatViewController.swift in Sources */,
 				E0F532D61FE5563800221EF1 /* EventFileViewController.swift in Sources */,
 				E0F532C81FE42B2700221EF1 /* FinishedEventsViewController.swift in Sources */,
 				E0D088071FCF16E2005681CC /* UIColor+Ext.swift in Sources */,
