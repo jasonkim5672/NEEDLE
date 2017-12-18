@@ -9,7 +9,21 @@
 import UIKit
 
 
-class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverlayDelegate,UISearchResultsUpdating,NMapLocationManagerDelegate{
+class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverlayDelegate,UISearchResultsUpdating,NMapLocationManagerDelegate,MMapReverseGeocoderDelegate{
+    open func location(_ location: NGeoPoint, didFind placemark: NMapPlacemark!) {
+        let address = placemark.address
+        
+        self.title = address
+        
+        let alert = UIAlertController(title: "ReverseGeocoder", message: address, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    open func location(_ location: NGeoPoint, didFailWithError error: NMapError!) {
+        print("location:(\(location.longitude), \(location.latitude)) didFailWithError: \(error.description)")
+    }
+
     func updateSearchResults(for searchController: UISearchController) {
         
     }
@@ -29,6 +43,39 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     
     
     var currentState: state = .disabled
+    func getGeocode(_ address: String){
+        //let config = URLSessionConfiguration.default // Session Configuration
+        //let urlStringWithKorean = "https://openapi.naver.com/v1/search/local.json?query=\(address)&display=10&start=1&sort=random"
+        let urlStringWithKorean = "https://openapi.naver.com/v1/map/geocode?query=\(address)&display=10&start=1&sort=random"
+        let urlString = urlStringWithKorean.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let request : NSMutableURLRequest = NSMutableURLRequest()
+        request.url = URL(string: urlString)
+        request.httpMethod = "GET"
+        request.timeoutInterval = 30
+        //let params = ["X-Naver-Client-Id":"eBknY0lClg3MZUJW1TOB", "X-Naver-Client-Secret":"QCvw3f_VdV"] as Dictionary<String, String>
+         let params : Data
+ 
+        //request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //request.addValue("plain/text", forHTTPHeaderField: "Content-Type")
+        request.addValue("eBknY0lClg3MZUJW1TOB", forHTTPHeaderField: "X-Naver-Client-Id")
+        request.addValue("QCvw3f_VdV", forHTTPHeaderField: "X-Naver-Client-Secret")
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {
+            data, response, error -> Void in
+            print(response!)
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!,options:JSONSerialization.ReadingOptions.mutableContainers)
+                print(json)
+            } catch {
+                print("error")
+            }
+        })
+        
+        task.resume()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +116,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         }
        
             view.addSubview(addButton)
+        getGeocode("책향기로 371")
         
     }
     
@@ -124,6 +172,48 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
             print("onMapView:initHandler: \(error.description)")
         }
     }
+    open func onMapView(_ mapView: NMapView!, touchesEnded touches: Set<AnyHashable>!, with event: UIEvent!) {
+        
+        if let touch = event.allTouches?.first {
+            // Get the specific point that was touched
+            let scrPoint = touch.location(in: mapView)
+            
+            print("scrPoint: \(scrPoint)")
+            print("to: \(mapView.fromPoint(scrPoint))")
+            requestAddressByCoordination(mapView.fromPoint(scrPoint))
+        }
+    }
+    
+    func requestAddressByCoordination(_ point: NGeoPoint) {
+        mapView?.findPlacemark(atLocation: point)
+        //mapView?.find
+        setMarker(point)
+    }
+    let UserFlagType: NMapPOIflagType = NMapPOIflagTypeReserved + 1
+
+    func setMarker(_ point: NGeoPoint) {
+        
+        clearOverlay()
+        
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+            
+            // create POI data overlay
+            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+                
+                poiDataOverlay.initPOIdata(1)
+                
+                poiDataOverlay.addPOIitem(atLocation: point, title: "마커 1", type: UserFlagType, iconIndex: 0, with: nil)
+                
+                poiDataOverlay.endPOIdata()
+            }
+        }
+    }
+    func clearOverlay() {
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+            mapOverlayManager.clearOverlay()
+        }
+    }
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -131,6 +221,11 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         
         
         mapView?.viewDidAppear()
+        addMarker()
+        
+        
+
+
     }
     
     
@@ -150,7 +245,13 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
         return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
     }
+    func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, viewForCalloutOverlayItem poiItem: NMapPOIitem!, calloutPosition: UnsafeMutablePointer<CGPoint>!) -> UIView?{
+        var vvv = UIView(frame : CGRect(x:0,y:self.view.bounds.size.height-300,width:self.view.bounds.size.width,height:200))
     
+        vvv.backgroundColor = UIColor.blue
+        return vvv
+        
+    }
     
     open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, anchorPointWithType poiFlagType: NMapPOIflagType) -> CGPoint {
         return NMapViewResources.anchorPoint(withType: poiFlagType)
@@ -390,5 +491,44 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
             changeStateButton?.setImage(#imageLiteral(resourceName: "v4_btn_navi_location_my"), for: .normal)
         }
     }
+    
+    func addMarker() {
+        
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+            
+            // create POI data overlay
+            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+                
+                poiDataOverlay.initPOIdata(1)
+                
+                let poiItem = poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.979, latitude: 37.567), title: "Touch & Drag to Move", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+                let poiItem2 = poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.7124284, latitude: 37.7251335), title: "Touch & Drag to Move", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+                
+                // set floating mode
+                poiItem?.setPOIflagMode(.touch)
+                
+                // hide right button on callout
+                poiItem?.hasRightCalloutAccessory = false
+                
+                poiDataOverlay.endPOIdata()
+                
+                // select item
+                poiDataOverlay.selectPOIitem(at: 0, moveToCenter: true)
+                
+                // show all POI data
+                poiDataOverlay.showAllPOIdata()
+            }
+        }
+    }
+ 
+    
+    func clearOverlays() {
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+            mapOverlayManager.clearOverlays()
+        }
+    }
+    
+    
+    
 }
 

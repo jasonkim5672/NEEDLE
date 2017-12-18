@@ -1132,7 +1132,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vql-st-EtZ">
-                                <rect key="frame" x="321" y="79" width="54" height="30"/>
+                                <rect key="frame" x="321" y="79" width="39" height="30"/>
                                 <state key="normal" title="로그인">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1154,9 +1154,9 @@
                             <constraint firstItem="LhL-Qv-zDd" firstAttribute="bottom" secondItem="IDS-Cv-HbC" secondAttribute="top" constant="-50" id="9hl-RZ-ynj"/>
                             <constraint firstItem="b9A-6w-El0" firstAttribute="centerX" secondItem="OJv-kk-cFL" secondAttribute="centerX" id="IkO-PC-O0U"/>
                             <constraint firstItem="EyF-gN-ELc" firstAttribute="bottom" secondItem="G2d-73-keb" secondAttribute="bottom" id="L1s-2u-l7a"/>
-                            <constraint firstItem="vql-st-EtZ" firstAttribute="leading" secondItem="OJv-kk-cFL" secondAttribute="leading" constant="321" id="Qxh-TZ-ecn"/>
+                            <constraint firstItem="vql-st-EtZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OJv-kk-cFL" secondAttribute="leading" constant="321" id="Qxh-TZ-ecn"/>
                             <constraint firstItem="b9A-6w-El0" firstAttribute="top" secondItem="EyF-gN-ELc" secondAttribute="top" constant="200" id="SgP-fO-BzF"/>
-                            <constraint firstItem="EyF-gN-ELc" firstAttribute="trailing" secondItem="vql-st-EtZ" secondAttribute="trailing" id="W0L-ka-1rf"/>
+                            <constraint firstItem="EyF-gN-ELc" firstAttribute="trailing" secondItem="vql-st-EtZ" secondAttribute="trailing" constant="15" id="W0L-ka-1rf"/>
                             <constraint firstItem="EyF-gN-ELc" firstAttribute="trailing" secondItem="IDS-Cv-HbC" secondAttribute="trailing" constant="30" id="bah-PA-dbg"/>
                             <constraint firstItem="G2d-73-keb" firstAttribute="top" secondItem="OJv-kk-cFL" secondAttribute="top" id="dkV-Yi-zpI"/>
                             <constraint firstItem="OfK-Vp-FOX" firstAttribute="top" secondItem="b9A-6w-El0" secondAttribute="bottom" constant="100" id="gUR-Oo-5yf"/>
