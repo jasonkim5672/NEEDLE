@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class addEventTableViewController: UITableViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    
+    
     
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var nameTextField: UITextField! {
@@ -44,6 +48,58 @@ class addEventTableViewController: UITableViewController, UITextFieldDelegate,UI
             bodyTextView.layer.masksToBounds = true
             
         } }
+    
+    @IBAction func addEventButtonTapped(segue: UIStoryboardSegue){
+        self.view.endEditing(true)
+        
+        if(self.nameTextField.text!.isEmpty || self.periodTextField.text!.isEmpty||self.locationTextField.text!.isEmpty||self.peopleTextField.text!.isEmpty||self.bodyTextView.text!.isEmpty){
+            let alert = UIAlertController(title: "Oops", message: "모든 항목을 입력해주세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: nil ))
+            self.present(alert, animated: true, completion: nil)
+            
+        }else{
+            let rootRef = Database.database().reference()
+            
+            if let user = Auth.auth().currentUser {
+                rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
+                    // Get user value
+                    let value = userData.value as? NSDictionary
+                    let username = value?["username"] as? String ?? ""
+                    let key = rootRef.child("posts").childByAutoId().key
+                    let todaysDate:Date = Date()
+                    let dateFormatter:DateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+                    let DateInFormat:String = dateFormatter.string(from:todaysDate)
+                    
+                    let post = ["uid": user.uid,
+                                "author": username,
+                                "period" : self.periodTextField.text!,
+                                "registerTime" : DateInFormat,
+                                "location" : self.locationTextField.text!,
+                                "people" : self.peopleTextField.text!,
+                                "thumbnailImage": "",
+                                "title": self.nameTextField.text!,
+                                "body": self.bodyTextView.text!,
+                                "tag": ""]
+                    let childUpdates = ["/posts/\(key)": post,
+                                        "/user-posts/\(user.uid)/\(key)/": post]
+                    rootRef.updateChildValues(childUpdates)
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+                let alert = UIAlertController(title: "WoW", message: "성공적으로 등록되었습니다.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: NSLocalizedString("확인", comment: "Default action"), style: .`default`, handler: {(alert: UIAlertAction!) in
+                self.dismiss(animated: true, completion: nil)} ))
+                self.present(alert, animated: true, completion: nil)
+                
+
+            }
+           
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,5 +225,8 @@ class addEventTableViewController: UITableViewController, UITextFieldDelegate,UI
             textField.resignFirstResponder()
             nextTextField.becomeFirstResponder() }
         return true }
+    
+    
+    
     
 }

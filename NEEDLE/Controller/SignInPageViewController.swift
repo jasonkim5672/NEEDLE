@@ -41,11 +41,10 @@ class SignInPageViewController: UIViewController {
                         rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
                             // Get user value
                             let alert = UIAlertController(title: "Welcome To NEEDLE", message: "로그인 되었습니다.", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: nil ))
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler:  {(alert: UIAlertAction!) in
+                                self.dismiss(animated: true, completion: nil)} ))
                             self.present(alert, animated: true, completion: nil)
-                            self.dismiss(animated: true){
-                                self.dismiss(animated: true,completion: nil)
-                            }
+                            
                             // ...
                         }) { (error) in
                             print(error.localizedDescription)
@@ -99,5 +98,13 @@ class SignInPageViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+            let destinationController = segue.destination as! loginScreenController
+                destinationController.dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
+    
 }

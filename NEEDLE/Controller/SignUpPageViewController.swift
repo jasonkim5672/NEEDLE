@@ -38,11 +38,10 @@ class SignUpPageViewController: UIViewController {
                     
                     print("register success")
                     let alert = UIAlertController(title: "Welcome", message: "회원가입이 완료되었습니다.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: nil ))
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler:  {(alert: UIAlertAction!) in
+                        self.dismiss(animated: true, completion: nil)} ))
                     self.present(alert, animated: true, completion: nil)
-                    self.dismiss(animated: true){
-                        self.dismiss(animated: true,completion: nil)
-                    }
+                    
                 }
                 else{
                     
@@ -89,7 +88,8 @@ class SignUpPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
     /*
     // MARK: - Navigation
 

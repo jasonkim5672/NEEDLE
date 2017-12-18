@@ -10,6 +10,13 @@ import UIKit
 
 
 class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverlayDelegate,UISearchResultsUpdating,NMapLocationManagerDelegate,MMapReverseGeocoderDelegate{
+    
+    @IBAction func unwindToMap(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     open func location(_ location: NGeoPoint, didFind placemark: NMapPlacemark!) {
         let address = placemark.address
         
@@ -27,9 +34,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     func updateSearchResults(for searchController: UISearchController) {
         
     }
-    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
-        dismiss(animated: true, completion: nil)
-    }
+  
     
     var mapView: NMapView?
     var changeStateButton: UIButton?
@@ -52,8 +57,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         request.url = URL(string: urlString)
         request.httpMethod = "GET"
         request.timeoutInterval = 30
-        //let params = ["X-Naver-Client-Id":"eBknY0lClg3MZUJW1TOB", "X-Naver-Client-Secret":"QCvw3f_VdV"] as Dictionary<String, String>
-         let params : Data
+        
  
         //request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
         //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -246,7 +250,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
     }
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, viewForCalloutOverlayItem poiItem: NMapPOIitem!, calloutPosition: UnsafeMutablePointer<CGPoint>!) -> UIView?{
-        var vvv = UIView(frame : CGRect(x:0,y:self.view.bounds.size.height-300,width:self.view.bounds.size.width,height:200))
+        let vvv = UIView(frame : CGRect(x:0,y:self.view.bounds.size.height-300,width:self.view.bounds.size.width,height:200))
     
         vvv.backgroundColor = UIColor.blue
         return vvv
@@ -502,7 +506,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
                 poiDataOverlay.initPOIdata(1)
                 
                 let poiItem = poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.979, latitude: 37.567), title: "Touch & Drag to Move", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
-                let poiItem2 = poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.7124284, latitude: 37.7251335), title: "Touch & Drag to Move", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+                let _ = poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.7124284, latitude: 37.7251335), title: "Touch & Drag to Move", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
                 
                 // set floating mode
                 poiItem?.setPOIflagMode(.touch)

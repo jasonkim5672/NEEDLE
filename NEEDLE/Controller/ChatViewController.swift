@@ -15,71 +15,57 @@ struct Constants
     struct refs
     {
         static let databaseRoot = Database.database().reference()
-        static let databaseChats = databaseRoot.child("chats")
+        //채팅방 아이디 찾아서 들어가도록 바꿀것!
+        static var databaseChats = databaseRoot.child("chats/talk/1")
     }
 }
 
+
 class ChatViewController: JSQMessagesViewController
 {
+    var myChat = ChatRoom()
     /// This array will store all the messages shown on screen
     var messages = [JSQMessage]()
     
-    /// Lazy computed property for painting outgoing messages blue
+    //메세지 전송색상
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     }()
     
-    /// Lazy computed property for painting incoming messages gray
+    //메세지 도착색상
     lazy var incomingBubble: JSQMessagesBubbleImage = {
-        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        Constants.refs.databaseChats = Constants.refs.databaseRoot.child("chats/talk/"+myChat.uid)
         let defaults = UserDefaults.standard
         
         // First, check the defaults if an ID and display name are set
-        if  let id = defaults.string(forKey: "jsq_id"),
-            let name = defaults.string(forKey: "jsq_name")
-        {
-            // Set the JSQMVC properties for sender ID and display name
-            senderId = id
-            senderDisplayName = name
-        }
-        else
-        {
-            // If the defaults doesn't have the ID and name, generate an ID, set the name to blank, and show the name dialog
-            senderId = String(arc4random_uniform(999999))
-            senderDisplayName = ""
-            
-            // Save the sender ID
-            defaults.set(senderId, forKey: "jsq_id")
-            defaults.synchronize()
-            
-            // Show the display name dialog
-            showDisplayNameDialog()
-        }
+        senderId = chatUserId
+        senderDisplayName = chatUserName
+        
+        defaults.set(senderId, forKey: "jsq_id")
+        defaults.set(senderDisplayName, forKey: "jsq_name")
+        
+        defaults.synchronize()
         
         // Set the navigation bar title
         // 대화중인 상대 설정
-        title = "\(senderDisplayName!)"
-        
-        // Add a tap gesture to the navigation bar, to bring up the name dialog when tapping
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showDisplayNameDialog))
-        tapGesture.numberOfTapsRequired = 1
+        title = "\(myChat.name)"
         
         //navigationController?.navigationBar.addGestureRecognizer(tapGesture)
+        
         navigationController?.navigationBar.tintColor = .white
         
-        // Remove the message bubble avatars, and the attachment button
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        // Prepare the Firebase query: all latest chat data limited to 10 items
-        let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
+        let query = Constants.refs.databaseChats.queryLimited(toLast: 30)
         
         // Observe the query for changes, and if a child is added, call the snapshot closure
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
@@ -108,54 +94,7 @@ class ChatViewController: JSQMessagesViewController
      Show a dialog that asks the user to input a display name,
      and store that display name in the user defaults.
      */
-    @objc func showDisplayNameDialog()
-    {
-        // Grab the user defaults
-        let defaults = UserDefaults.standard
-        
-        // Prepare the alert controller
-        let alert = UIAlertController(title: "Your Display Name", message: "Before you can chat, please choose a display name. Others will see this name when you send chat messages. You can change your display name again by tapping the navigation bar.", preferredStyle: .alert)
-        
-        // Add a text field to the dialog
-        alert.addTextField { textField in
-            
-            // If a display name is present in the user defaults, pre-fill the text field with that name
-            if let name = defaults.string(forKey: "jsq_name")
-            {
-                textField.text = name
-            }
-            else
-            {
-                // Otherwise, pre-fill with a random name from the `names` array
-                let names = ["Ford", "Arthur", "Zaphod", "Trillian", "Slartibartfast", "Humma Kavula", "Deep Thought"]
-                textField.text = names[Int(arc4random_uniform(UInt32(names.count)))]
-            }
-        }
-        
-        // Add an action (a button) to the alert controller, and call the closure when the button is tapped
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self, weak alert] _ in
-            
-            // Quick Note: in this closure `alert` references the alert controller
-            
-            // Check if the text field exists, and if its text isn't empty
-            if let textField = alert?.textFields?[0], !textField.text!.isEmpty {
-                
-                // Set the JSQMVC display name
-                self?.senderDisplayName = textField.text
-                
-                // Update the title
-                // 제목바꾸기
-                self?.title = "\(self!.senderDisplayName!)"
-                
-                // Update and save the user defaults
-                defaults.set(textField.text, forKey: "jsq_name")
-                defaults.synchronize()
-            }
-        }))
-        
-        // Present the alert controller
-        present(alert, animated: true, completion: nil)
-    }
+    
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData!
     {
@@ -168,6 +107,27 @@ class ChatViewController: JSQMessagesViewController
         // Return the number of messages
         return messages.count
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        
+        let message = self.messages[indexPath.item]
+        
+        var isOutgoing = false
+        
+        if message.senderId == self.senderId {
+            isOutgoing = true
+        }
+        
+        if isOutgoing {
+            cell.textView.textColor = UIColor.white
+        } else {
+            cell.textView.textColor = UIColor.black
+        }
+        
+        return cell
+    }
+    
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource!
     {
@@ -204,6 +164,9 @@ class ChatViewController: JSQMessagesViewController
         
         // Save the data on the new reference
         ref.setValue(message)
+        
+        let refUpdate = Constants.refs.databaseRoot.child("chats/room/"+myChat.uid)
+        refUpdate.updateChildValues(["sub": text])
         
         // Tell JSQMVC we're done here
         // Note: the UI and bubbles don't update until the newly sent message is returned via the .observe(.childAdded,with:) closure. Neat!
