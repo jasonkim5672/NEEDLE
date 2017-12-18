@@ -24,6 +24,14 @@ class ThirdViewController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        needMessageShow = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        needMessageShow = false
+    }
 
     /*
     // MARK: - Navigation
