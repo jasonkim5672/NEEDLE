@@ -164,6 +164,9 @@ class ChatViewController: JSQMessagesViewController
         // Save the data on the new reference
         ref.setValue(message)
         
+        let refUpdate = Constants.refs.databaseRoot.child("chats/room/"+myChat.uid)
+        refUpdate.updateChildValues(["sub": text])
+        
         // Tell JSQMVC we're done here
         // Note: the UI and bubbles don't update until the newly sent message is returned via the .observe(.childAdded,with:) closure. Neat!
         finishSendingMessage()

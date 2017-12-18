@@ -74,12 +74,23 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var testButton: UIButton!
     override func viewWillAppear(_ animated: Bool) {
-       loginCheck()
+       //loginCheck()
+        
+        if(drawFinsh==true)
+        {
+            loginCheck()
+        }
+        
+        //chatListView.delegate = self
+        //chatListView.dataSource = self
     }
     
     
     func findChatRoom()
     {
+        //print(chatUserName)
+        
+        if(oldChatUserId != chatUserId && chatUserId != "0") {
             
         let ref = Database.database().reference()
          ref.child("chats").child("room").observe(.childAdded, with: { (snapshot) in
@@ -90,17 +101,44 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
             updateChatRoom.name = fItem["name"] as? String ?? "제목없음"
             updateChatRoom.sub = fItem["sub"] as? String ?? "내용없음"
             updateChatRoom.type = fItem["type"] as? String ?? "2"
+            updateChatRoom.user = fItem["user"] as? [String] ?? [""]
             
-            if(self.findChatType == 0){
-                self.myChatRoom.insert(updateChatRoom, at: 0)
+            var allowInsert:Bool = false
+            for followUser in updateChatRoom.user {
+                print(followUser)
+                if followUser == chatUserId {
+                    allowInsert = true
+                }
             }
-            if(self.findChatType == 1 && updateChatRoom.type == "1") {
-                self.myChatRoom.insert(updateChatRoom, at: 0)
+            
+            if allowInsert == true {
+                allowInsert = false
+                if(self.findChatType == 0){
+                    allowInsert = true
+                }
+                if(self.findChatType == 1 && updateChatRoom.type == "1") {
+                    allowInsert = true
+                }
+                if(self.findChatType == 2 && updateChatRoom.type == "2") {
+                    allowInsert = true
+                }
+                
+                if allowInsert == true {
+                    self.myChatRoom.insert(updateChatRoom, at: 0)
+                    self.chatListView.reloadData()
+                }
             }
-            if(self.findChatType == 2 && updateChatRoom.type == "2") {
-                self.myChatRoom.insert(updateChatRoom, at: 0)
-            }
-            self.chatListView.reloadData()
+           
+            /*
+             if let followUser = fItem["user"] as? [String] {
+             for ffUsr in followUser {
+             if(ffUsr == chatUserId)
+             {
+             
+             
+             }
+             }
+             }*/
             
         })
         
@@ -113,6 +151,7 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
                     updateChatRoom.name = fItem["name"] as? String ?? "제목없음"
                     updateChatRoom.sub = fItem["sub"] as? String ?? "내용없음"
                     updateChatRoom.type = fItem["type"] as? String ?? "0"
+                    updateChatRoom.user = fItem["user"] as? [String] ?? [""]
                 }
             }
             
@@ -135,7 +174,7 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
         })
         
         
-        
+        }
         
         
         //if let dictionary = snapshot.value as? [String:Any] {
@@ -182,6 +221,8 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
         } */
     }
     
+    var drawFinsh:Bool = false
+    
     override func viewDidLoad() {
         findChatType = selectMessageItem //보고있는 페이지 찾기
         
@@ -192,11 +233,14 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
         navigationController?.navigationBar.setGradientBackground(colors: colors)
         //overaction()
         
-        //myChatRoom.removeAll()
-        findChatRoom()
         
         chatListView.delegate = self
         chatListView.dataSource = self
+        
+        //myChatRoom.removeAll()
+        loginCheck()
+        drawFinsh = true
+        
     }
         
     func alertFunc(_ memo:String, _ title:String="경고") {
@@ -247,14 +291,23 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
                 let value = userData.value as? NSDictionary
                 let username = value?["username"] as? String ?? ""
                 
-                chatUserId = user.uid
-                chatUserName = username
+                //chatUserId = user.uid
+                //chatUserName = username
+                //self.alertFunc(username)
                 
-                if(self.oldChatUserId != chatUserId)
+                if(self.oldChatUserId != user.uid)
                 {
+                    self.chatListView.delegate = nil
+                    self.chatListView.dataSource = nil
+                    self.myChatRoom.removeAll()
+                    self.chatListView.delegate = self
+                    self.chatListView.dataSource = self
+                    
+                    print(self.oldChatUserId + "   " + chatUserId)
+                    chatUserId = user.uid
+                    chatUserName = username
+                    self.findChatRoom()
                     self.oldChatUserId = chatUserId
-                    //let ref = Database.database().reference()
-                    //self.findChatRoom()
                 }
                 
             }) { (error) in
@@ -263,7 +316,12 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
           
         }else{
             
-            //self.myChatRoom.removeAll()
+            chatListView.delegate = nil
+            chatListView.dataSource = nil
+            self.myChatRoom.removeAll()
+            chatListView.delegate = self
+            chatListView.dataSource = self
+            
             //ref.removeAllObservers()
             //liveOb = false
             

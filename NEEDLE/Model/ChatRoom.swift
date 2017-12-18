@@ -15,6 +15,7 @@ class ChatRoom {
     var sub : String = ""
     var date : String = ""
     var image : String = ""
+    var user : [String] = [""]
 
     init()
     {
