@@ -27,7 +27,32 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
         return count!
         
     }
+
+    func removeUser(_ crId:String, _ userID : String) {
+        for vChat in myChatRoom {
+            if vChat.uid == crId {
+                var i=0
+                for vUser in vChat.user {
+                    if vUser == userID {
+                        vChat.user.remove(at: i)
+                        i = i+1
+                    }
+                }
+            }
+        }
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //array.remove(at: indexPath.row)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            let refUpdate = Database.database().reference().child("chats/room/" + myChatRoom[indexPath.row].uid)
+            removeUser(myChatRoom[indexPath.row].uid, chatUserId)
+            refUpdate.updateChildValues(["user": myChatRoom[indexPath.row].user])
+        }
+    }
+    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
@@ -85,6 +110,33 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
         //chatListView.dataSource = self
     }
     
+    func newRoom(_ updateChatRoom:ChatRoom){
+        
+        var allowInsert:Bool = false
+        for followUser in updateChatRoom.user {
+            if followUser == chatUserId {
+                allowInsert = true
+            }
+        }
+        
+        if allowInsert == true {
+            allowInsert = false
+            if(self.findChatType == 0){
+                allowInsert = true
+            }
+            if(self.findChatType == 1 && updateChatRoom.type == "1") {
+                allowInsert = true
+            }
+            if(self.findChatType == 2 && updateChatRoom.type == "2") {
+                allowInsert = true
+            }
+            
+            if allowInsert == true {
+                self.myChatRoom.insert(updateChatRoom, at: 0)
+                self.chatListView.reloadData()
+            }
+        }
+    }
     
     func findChatRoom()
     {
@@ -103,32 +155,7 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
             updateChatRoom.type = fItem["type"] as? String ?? "2"
             updateChatRoom.user = fItem["user"] as? [String] ?? [""]
             
-            var allowInsert:Bool = false
-            for followUser in updateChatRoom.user {
-                print(followUser)
-                if followUser == chatUserId {
-                    allowInsert = true
-                }
-            }
-            
-            if allowInsert == true {
-                allowInsert = false
-                if(self.findChatType == 0){
-                    allowInsert = true
-                }
-                if(self.findChatType == 1 && updateChatRoom.type == "1") {
-                    allowInsert = true
-                }
-                if(self.findChatType == 2 && updateChatRoom.type == "2") {
-                    allowInsert = true
-                }
-                
-                if allowInsert == true {
-                    self.myChatRoom.insert(updateChatRoom, at: 0)
-                    self.chatListView.reloadData()
-                }
-            }
-           
+            self.newRoom(updateChatRoom)
             /*
              if let followUser = fItem["user"] as? [String] {
              for ffUsr in followUser {
@@ -145,32 +172,43 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
         ref.child("chats").child("room").observe(.childChanged, with: { (snapshot) in
             var fItem = snapshot.value as! [String:AnyObject]
             
+            /* 최적화
+            var findSS : Bool = false
             for updateChatRoom in self.myChatRoom {
                 if updateChatRoom.uid == snapshot.key {
+                    findSS = true
                     updateChatRoom.uid = snapshot.key
                     updateChatRoom.name = fItem["name"] as? String ?? "제목없음"
                     updateChatRoom.sub = fItem["sub"] as? String ?? "내용없음"
                     updateChatRoom.type = fItem["type"] as? String ?? "0"
                     updateChatRoom.user = fItem["user"] as? [String] ?? [""]
+                    
+                    var hasUser:Bool = false
+                    for followUser in updateChatRoom.user {
+                        if followUser == chatUserId {
+                            hasUser = true
+                        }
+                    }
+                    if hasUser == false {
+                        self.removeRoom(snapshot.key)
+                    }
+                    
                 }
-            }
-            
-            self.chatListView.reloadData()
+            } */
+            self.removeRoom(snapshot.key)
+        
+            let updateChatRoom = ChatRoom()
+            updateChatRoom.uid = snapshot.key
+            updateChatRoom.name = fItem["name"] as? String ?? "제목없음"
+            updateChatRoom.sub = fItem["sub"] as? String ?? "내용없음"
+            updateChatRoom.type = fItem["type"] as? String ?? "2"
+            updateChatRoom.user = fItem["user"] as? [String] ?? [""]
+            self.newRoom(updateChatRoom)
         })
         
-        
         ref.child("chats").child("room").observe(.childRemoved, with: { (snapshot) in
-            var i = 0
-            for updateChatRoom in self.myChatRoom {
-                if updateChatRoom.uid == snapshot.key {
-                    self.myChatRoom.remove(at: i)
-                    break
-                }
-                i = i + 1
-            }
-            
+            self.removeRoom(snapshot.key)
             //self.myChatRoom.append(newChatRoom)
-            self.chatListView.reloadData()
         })
         
         
@@ -219,6 +257,19 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
         } */
+    }
+    
+    
+    func removeRoom(_ iUid:String) {
+        var i = 0
+        for updateChatRoom in self.myChatRoom {
+            if updateChatRoom.uid == iUid {
+                self.myChatRoom.remove(at: i)
+                self.chatListView.reloadData()
+                break
+            }
+            i = i + 1
+        }
     }
     
     var drawFinsh:Bool = false

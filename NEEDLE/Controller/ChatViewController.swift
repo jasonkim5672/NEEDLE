@@ -20,6 +20,7 @@ struct Constants
     }
 }
 
+
 class ChatViewController: JSQMessagesViewController
 {
     var myChat = ChatRoom()
