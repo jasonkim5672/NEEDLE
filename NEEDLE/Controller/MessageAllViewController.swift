@@ -28,15 +28,15 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
 
-    func removeUser(_ crId:String, _ userID : String) {
+    func removeUser(_ crId:String) {
         for vChat in myChatRoom {
             if vChat.uid == crId {
                 var i=0
                 for vUser in vChat.user {
-                    if vUser == userID {
+                    if vUser == chatUserId {
                         vChat.user.remove(at: i)
-                        i = i+1
                     }
+                    i = i + 1
                 }
             }
         }
@@ -47,7 +47,7 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
             //array.remove(at: indexPath.row)
             //tableView.deleteRows(at: [indexPath], with: .fade)
             let refUpdate = Database.database().reference().child("chats/room/" + myChatRoom[indexPath.row].uid)
-            removeUser(myChatRoom[indexPath.row].uid, chatUserId)
+            removeUser(myChatRoom[indexPath.row].uid)
             refUpdate.updateChildValues(["user": myChatRoom[indexPath.row].user])
         }
     }
@@ -132,15 +132,21 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             if allowInsert == true {
+                
+                if(needMessageShow == true) {
+                    self.alertFunc(updateChatRoom.sub,"[새쪽지] " + updateChatRoom.name)
+                }
                 self.myChatRoom.insert(updateChatRoom, at: 0)
                 self.chatListView.reloadData()
             }
         }
     }
     
+    
     func findChatRoom()
     {
         //print(chatUserName)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
         if(oldChatUserId != chatUserId && chatUserId != "0") {
             
@@ -196,7 +202,6 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             } */
             self.removeRoom(snapshot.key)
-        
             let updateChatRoom = ChatRoom()
             updateChatRoom.uid = snapshot.key
             updateChatRoom.name = fItem["name"] as? String ?? "제목없음"
@@ -275,6 +280,7 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
     var drawFinsh:Bool = false
     
     override func viewDidLoad() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         findChatType = selectMessageItem //보고있는 페이지 찾기
         
         super.viewDidLoad()

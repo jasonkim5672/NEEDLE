@@ -12,4 +12,5 @@ var selectMessageItem : Int = 0
 
 var chatUserId:String = "0"
 var chatUserName:String = "비회원"
+var needMessageShow:Bool = true
 
