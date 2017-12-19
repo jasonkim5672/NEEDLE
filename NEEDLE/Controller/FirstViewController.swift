@@ -27,6 +27,7 @@ class FirstViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         //nearIssueScrollView.delegate=self
         //recommendIssueScrollView.delegate=self
         
@@ -91,7 +92,12 @@ class FirstViewController: UITableViewController{
      nearIssuePage.currentPage = Int(nearIssueScrollView.contentOffset.x / CGFloat(375))
      }
      */
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+     
     
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

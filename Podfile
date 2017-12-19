@@ -9,6 +9,7 @@ target 'NEEDLE' do
 	pod 'Firebase/Messaging'
 	pod 'Firebase/Storage'
 	pod 'Firebase/Auth'
+	pod ‘SwiftyJSON’
   # Pods for NEEDLE
 	pod 'JSQMessagesViewController'
 

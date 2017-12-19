@@ -18,6 +18,8 @@ class Event{
     var registerTime : String
     var uid : String
     var tag : String
+    var longitude : Double
+    var latitude : Double
     
     init(title: String, author: String, uid: String, location: String, period: String, registerTime: String, body: String, tag: String, people:String) {
         self.title = title
@@ -29,6 +31,8 @@ class Event{
         self.registerTime = registerTime
         self.tag = tag
         self.people = people
+        self.longitude = 0.0
+        self.latitude = 0.0
     }
     
 }

@@ -81,6 +81,7 @@ class addEventTableViewController: UITableViewController, UITextFieldDelegate,UI
                                 "title": self.nameTextField.text!,
                                 "body": self.bodyTextView.text!,
                                 "tag": ""]
+                    NDEvents.append(Event.init(title: self.nameTextField.text! ,author : username, uid : user.uid , location: self.locationTextField.text! , period : self.periodTextField.text!,registerTime: DateInFormat,body :self.bodyTextView.text! ,tag : "",people : self.peopleTextField.text!))
                     let childUpdates = ["/posts/\(key)": post,
                                         "/user-posts/\(user.uid)/\(key)/": post]
                     rootRef.updateChildValues(childUpdates)
