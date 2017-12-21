@@ -238,8 +238,9 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     }
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, viewForCalloutOverlayItem poiItem: NMapPOIitem!, calloutPosition: UnsafeMutablePointer<CGPoint>!) -> UIView?{
         let vvv = UIView(frame : CGRect(x:0,y:self.view.bounds.size.height-300,width:self.view.bounds.size.width,height:200))
+        vvv.backgroundColor = UIColor(patternImage: UIImage(named: "LiveBeats")!)
         
-        vvv.backgroundColor = UIColor.blue
+        //vvv.backgroundColor = UIColor.blue
         return vvv
         
     }
