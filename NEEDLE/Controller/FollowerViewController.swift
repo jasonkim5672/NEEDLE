@@ -77,7 +77,7 @@ class FollowerViewController: UIViewController,UITableViewDelegate, UITableViewD
             if let user = Auth.auth().currentUser {
                 
                 for i in NDFollowList{
-                    EventHandler = rootRef.child("user-posts").child(user.uid).observe(DataEventType.value, with: { (userData) in
+                    EventHandler = rootRef.child("user-posts").child(i).observe(DataEventType.value, with: { (userData) in
                         if let Data = userData.value as? NSDictionary{
                             for row in Data as! [String:NSDictionary] {
                                 if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
