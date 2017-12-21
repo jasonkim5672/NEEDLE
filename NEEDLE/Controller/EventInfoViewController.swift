@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EventInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
@@ -16,12 +17,37 @@ class EventInfoViewController: UIViewController,UITableViewDelegate,UITableViewD
     var thisEvent : Event!
     
     @IBAction func chatChat(_ sender: Any) {
+        
+        
+        let rootRef = Database.database().reference()
+        
+        if let user = Auth.auth().currentUser {
+            rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
+                
+                rootRef.child("/chats/room/\(self.thisEvent.uid)").setValue(["type":"2","name":self.thisEvent.title+" (1:1대화)", "sub":"새로운 대화를 시작합니다.", "user": [(user.uid), self.thisEvent.uid] ])
+                
+            })
+            
+        }
+        
     }
     @IBAction func Share(_ sender: Any) {
        
     }
     @IBOutlet weak var chatUser: UIButton!
     @IBAction func joinEvent(_ sender: Any) {
+        
+        let rootRef = Database.database().reference()
+       
+        if let user = Auth.auth().currentUser {
+            rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
+                
+                rootRef.child("/chats/room/\(self.thisEvent.title)/user/").setValue( [(user.uid) ])
+                
+            })
+            
+        }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
