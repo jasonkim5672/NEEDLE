@@ -237,9 +237,12 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
     }
     func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, viewForCalloutOverlayItem poiItem: NMapPOIitem!, calloutPosition: UnsafeMutablePointer<CGPoint>!) -> UIView?{
-        let vvv = UIView(frame : CGRect(x:0,y:self.view.bounds.size.height-300,width:self.view.bounds.size.width,height:200))
-        
-        vvv.backgroundColor = UIColor.blue
+        let vvv = UIView(frame : CGRect(x:self.view.bounds.size.width, y:-200 ,width:self.view.bounds.size.width*2/3,height:150))
+        vvv.backgroundColor = UIColor.white
+        vvv.layer.borderColor = UIColor.darkGray.cgColor
+        vvv.layer.borderWidth = 2
+        vvv.layer.cornerRadius = 10
+        vvv.clipsToBounds = true
         return vvv
         
     }

@@ -177,18 +177,13 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
                     let coverImage = Data?["coverImage"] as? String ?? " "
                     if (coverImage==" "){
                         //destinationController.profileHeaderView.coverImage.image = UIImage(named: "defaultCover")
-                        destinationController.profileHeaderView.coverImage.image = UIImage(named: "bwCover")
+                        destinationController.profileHeaderView.coverImage.image = UIImage(named: "defaultCover")
 
                     }else{
                         destinationController.profileHeaderView.coverImage.image = UIImage(named: String(describing:coverImage))
 
                     }
-                    if let photoURL = user.photoURL{
-                        destinationController.profileHeaderView.profileImage.image = UIImage(named: String(describing:photoURL))
-                    }else{
-                        //destinationController.profileHeaderView.profileImage.image = UIImage(named: "defaultUser")
-                        destinationController.profileHeaderView.profileImage.image = UIImage(named: "BW")
-                    }
+                   
                     
                     let username = Data?["username"] as? String ?? ""
                     

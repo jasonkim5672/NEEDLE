@@ -35,6 +35,8 @@ class ProfilePageTableViewController: UITableViewController {
                 let imageView: UIImageView = profileHeaderView.profileImage
                 let placeholderImage = UIImage(named: "defaultUser")
                 imageView.sd_setImage(with: photoURL, placeholderImage: placeholderImage)
+                imageView.layer.cornerRadius = 50
+                imageView.clipsToBounds = true
             }else{
                 profileHeaderView.profileImage.image = UIImage(named: "defaultUser")
             }
@@ -98,7 +100,12 @@ class ProfilePageTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        myEvents.sort(by: {
+            if $0.registerTime > $1.registerTime{
+                return true
+            }
+            return false
+        })
         let cell = tableView.dequeueReusableCell(withIdentifier: "Timeline", for: indexPath) as! EventPostCellTableViewCell
         cell.authorLabel.text = myEvents[indexPath.row].author
         cell.titleLabel.text = myEvents[indexPath.row].title
@@ -112,8 +119,20 @@ class ProfilePageTableViewController: UITableViewController {
         }else{
             cell.thumbnailImage.image = UIImage(named: "LiveBeats")
         }
-        //cell.profileImage.image = UIImage(named: "defaultUser")
-        cell.profileImage.image = UIImage(named: "BW")
+        if let user = Auth.auth().currentUser {
+            
+            if let photoURL = user.photoURL{
+                let imageView: UIImageView = cell.profileImage
+                let placeholderImage = UIImage(named: "defaultUser")
+                imageView.sd_setImage(with: photoURL, placeholderImage: placeholderImage)
+                imageView.layer.cornerRadius = 25
+                imageView.clipsToBounds = true
+            }else{
+                cell.profileImage.image = UIImage(named: "defaultUser")
+            }
+            
+        }
+        
         cell.summaryLabel.text = myEvents[indexPath.row].body
         
 

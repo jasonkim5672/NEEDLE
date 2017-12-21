@@ -846,12 +846,12 @@
                                             <constraints>
                                                 <constraint firstItem="365-dK-1ze" firstAttribute="leading" secondItem="h1V-aB-Klf" secondAttribute="leading" constant="15" id="6gA-zB-5wQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="WwD-6Z-Ruy" secondAttribute="trailing" constant="5" id="8dw-33-Lha"/>
+                                                <constraint firstItem="itx-qO-qQ1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="365-dK-1ze" secondAttribute="trailing" constant="10" id="DJP-Qj-elt"/>
                                                 <constraint firstItem="RUE-jC-EzZ" firstAttribute="leading" secondItem="365-dK-1ze" secondAttribute="leading" id="Ihb-Tw-hsf"/>
                                                 <constraint firstItem="365-dK-1ze" firstAttribute="top" secondItem="h1V-aB-Klf" secondAttribute="topMargin" constant="15" id="PGV-Ot-u2Z"/>
                                                 <constraint firstAttribute="bottom" secondItem="WwD-6Z-Ruy" secondAttribute="bottom" constant="5" id="Prr-D7-QKJ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="itx-qO-qQ1" secondAttribute="trailing" constant="15" id="QEm-nZ-XnE"/>
                                                 <constraint firstAttribute="trailing" secondItem="RUE-jC-EzZ" secondAttribute="trailing" constant="15" id="T2h-9G-Skn"/>
-                                                <constraint firstItem="itx-qO-qQ1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rHa-Lj-aR5" secondAttribute="trailing" constant="50" id="UIK-D1-64f"/>
                                                 <constraint firstItem="RUE-jC-EzZ" firstAttribute="leading" secondItem="h1V-aB-Klf" secondAttribute="leading" constant="15" id="Yqo-ay-RcN"/>
                                                 <constraint firstItem="WwD-6Z-Ruy" firstAttribute="top" secondItem="h1V-aB-Klf" secondAttribute="top" constant="5" id="Zhb-G3-e5t"/>
                                                 <constraint firstItem="EEf-jB-H3X" firstAttribute="leading" secondItem="365-dK-1ze" secondAttribute="leadingMargin" constant="10" id="h6a-go-rSl"/>
@@ -2044,7 +2044,7 @@
         <!--Profile Page Table View Controller-->
         <scene sceneID="gBe-XM-7Yn">
             <objects>
-                <tableViewController id="Eai-YI-LjV" customClass="ProfilePageTableViewController" customModule="NEEDLE" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="myProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Eai-YI-LjV" customClass="ProfilePageTableViewController" customModule="NEEDLE" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="350" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" id="Dbs-c5-eNt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2059,7 +2059,7 @@
                                         <constraint firstAttribute="height" constant="200" id="ICL-Lt-4hS"/>
                                     </constraints>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tmC-he-fUU" userLabel="ProfileBackground">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tmC-he-fUU" userLabel="ProfileBackground">
                                     <rect key="frame" x="134" y="127" width="106" height="106"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -2080,6 +2080,11 @@
                                         <constraint firstAttribute="height" constant="100" id="SMw-Dd-cOU"/>
                                         <constraint firstAttribute="width" secondItem="t8J-y3-T4y" secondAttribute="height" multiplier="1:1" id="y63-aD-gro"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="50"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNM-ZU-bwy">
                                     <rect key="frame" x="134" y="245" width="106" height="24"/>

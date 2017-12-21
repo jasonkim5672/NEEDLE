@@ -39,7 +39,11 @@ class SignUpPageViewController: UIViewController {
                     print("register success")
                     let alert = UIAlertController(title: "Welcome", message: "회원가입이 완료되었습니다.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler:  {(alert: UIAlertAction!) in
-                        self.dismiss(animated: true, completion: nil)} ))
+                        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "mainView") {
+                            UIApplication.shared.keyWindow?.rootViewController = viewController
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    } ))
                     self.present(alert, animated: true, completion: nil)
                     
                 }

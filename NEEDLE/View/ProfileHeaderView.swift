@@ -45,8 +45,8 @@ class ProfileHeaderView: UIView {
     }
     @IBOutlet var profileImage : UIImageView!{
         didSet{
-            profileImage.layer.cornerRadius = 5.0
-            profileImage.layer.masksToBounds = true
+            
+            
         }
     }
     @IBOutlet var name : UILabel!{

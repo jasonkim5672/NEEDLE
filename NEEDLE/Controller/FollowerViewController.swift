@@ -23,6 +23,12 @@ class FollowerViewController: UIViewController,UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableview: UITableView!
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        myEvents.sort(by: {
+            if $0.registerTime > $1.registerTime{
+                return true
+            }
+            return false
+        })
         let cell = tableView.dequeueReusableCell(withIdentifier: "Post", for: indexPath) as! EventPostCellTableViewCell
         
         cell.authorLabel.text = myEvents[indexPath.row].author
@@ -38,7 +44,7 @@ class FollowerViewController: UIViewController,UITableViewDelegate, UITableViewD
             cell.thumbnailImage.image = UIImage(named: "LiveBeats")
         }
         //cell.profileImage.image = UIImage(named: "defaultUser")
-        cell.profileImage.image = UIImage(named: "BW")
+        cell.profileImage.image = UIImage(named: "defaultUser")
         cell.summaryLabel.text = myEvents[indexPath.row].body
         
         
@@ -69,7 +75,7 @@ class FollowerViewController: UIViewController,UITableViewDelegate, UITableViewD
             
 
             if let user = Auth.auth().currentUser {
-                myEvents = []
+                
                 for i in NDFollowList{
                     EventHandler = rootRef.child("user-posts").child(user.uid).observe(DataEventType.value, with: { (userData) in
                         if let Data = userData.value as? NSDictionary{
