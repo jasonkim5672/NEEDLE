@@ -35,6 +35,16 @@ class MessageAllViewController: UIViewController, UITableViewDelegate, UITableVi
                 for vUser in vChat.user {
                     if vUser == chatUserId {
                         vChat.user.remove(at: i)
+                        break
+                    }
+                    i = i + 1
+                }
+                
+                i=0
+                for vUser in vChat.user {
+                    if vUser == chatUserId {
+                        vChat.user.remove(at: i)
+                        break
                     }
                     i = i + 1
                 }

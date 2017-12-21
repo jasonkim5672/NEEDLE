@@ -115,6 +115,10 @@ class addEventTableViewController: UITableViewController, UITextFieldDelegate,UI
                     let childUpdates = ["/posts/\(key)": post,
                                         "/user-posts/\(user.uid)/\(key)/": post]
                     rootRef.updateChildValues(childUpdates)
+                    
+                    rootRef.child("/chats/room/\(self.nameTextField.text!)").setValue(["type":"1", "name":self.nameTextField.text!, "sub":"새로운 대화를 시작합니다.", "user": [(user.uid)] ])
+ 
+                    
                 }) { (error) in
                     print(error.localizedDescription)
                 }
