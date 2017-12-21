@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorageUI
 
 class ProfilePageTableViewController: UITableViewController {
     var myEvents : [Event] = []
@@ -29,14 +30,42 @@ class ProfilePageTableViewController: UITableViewController {
 
         let rootRef = Database.database().reference()
         if let user = Auth.auth().currentUser {
+          
+            if let photoURL = user.photoURL{
+                let imageView: UIImageView = profileHeaderView.profileImage
+                let placeholderImage = UIImage(named: "defaultUser")
+                imageView.sd_setImage(with: photoURL, placeholderImage: placeholderImage)
+            }else{
+                profileHeaderView.profileImage.image = UIImage(named: "defaultUser")
+            }
+            
             rootRef.child("user-posts").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
                 // Get user value
                 if let Data = userData.value as? NSDictionary{
                     for row in Data as! [String:NSDictionary] {
-                        self.myEvents.append(Event.init(title: row.value["title"] as? String ?? " ",author : row.value["author"] as? String ?? " ", uid : user.uid, location: row.value["location"] as? String ?? " " , period : row.value["period"] as? String ?? " ",registerTime: row.value["registerTime"] as? String ?? " ",body : row.value["body"] as? String ?? " ",tag : row.value["tag"] as? String ?? " ",people : row.value["people"] as? String ?? " "))
-                        print(row)
+                        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                            var event = MyEventMO(context: appDelegate.persistentContainer.viewContext)
+                            let todaysDate:Date = Date()
+                            let dateFormatter:DateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+                            let today :String = dateFormatter.string(from:todaysDate)
+                            event.title = row.value["title"] as? String ?? " "
+                            event.author = row.value["author"] as? String ?? " "
+                            event.uid = row.value["uid"] as? String ?? " "
+                            event.location = row.value["location"] as? String ?? " "
+                            event.period = row.value["period"] as? String ?? today
+                            event.registerTime = row.value["registerTime"] as? String ?? " "
+                            event.body = row.value["body"] as? String ?? " "
+                            event.tag = row.value["tag"] as? String ?? " "
+                            event.people = row.value["people"] as? Int16 ?? 100
+                            event.thumbnailImage = row.value["thumbnailImage"] as? String ?? " "
+                            self.myEvents.append(Event(event.title! ,event.author!,event.body!,event.location!,event.period!,event.people,event.registerTime!,event.uid!,event.tag!,event.thumbnailImage!))
+                            print(row)
+                            
+                        }
                     }
                 }
+                
                 
                 
                 self.tableView.reloadData()
@@ -74,7 +103,15 @@ class ProfilePageTableViewController: UITableViewController {
         cell.authorLabel.text = myEvents[indexPath.row].author
         cell.titleLabel.text = myEvents[indexPath.row].title
         cell.dateLabel.text = myEvents[indexPath.row].registerTime
-        cell.thumbnailImage.image = UIImage(named: "LiveBeats")
+        let url = myEvents[indexPath.row].thumbnailImage ?? ""
+        if (url != nil && url.count > 10 ) {
+            let httpsReference = storage.reference(forURL: url)
+            let imageView: UIImageView = cell.thumbnailImage
+            let placeholderImage = UIImage(named: "LiveBeats")
+            imageView.sd_setImage(with: httpsReference, placeholderImage: placeholderImage)
+        }else{
+            cell.thumbnailImage.image = UIImage(named: "LiveBeats")
+        }
         //cell.profileImage.image = UIImage(named: "defaultUser")
         cell.profileImage.image = UIImage(named: "BW")
         cell.summaryLabel.text = myEvents[indexPath.row].body
@@ -122,6 +159,7 @@ class ProfilePageTableViewController: UITableViewController {
         if segue.identifier == "showEvent" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let tabBarController = segue.destination as! EventPageTabBarController
+                //let tmp = Event(title: myEvents[indexPath.row].title!, author: myEvents[indexPath.row].author!, uid: myEvents[indexPath.row].uid!, location: myEvents[indexPath.row].location!, period: myEvents[indexPath.row].period!, registerTime: myEvents[indexPath.row].registerTime!, body: myEvents[indexPath.row].body!, tag: myEvents[indexPath.row].tag!, people: myEvents[indexPath.row].people,thumbnailImage :myEvents[indexPath.row].thumbnailImage! )
                 let destinationController0 = tabBarController.viewControllers?[0] as! EventInfoViewController
                 let destinationController1 = tabBarController.viewControllers?[1] as! EventFeedViewController
                 let destinationController2 = tabBarController.viewControllers?[2] as! EventPhotoViewController

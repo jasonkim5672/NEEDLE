@@ -88,7 +88,12 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
         cell.menuLabel.text = menuList[indexPath.row]
         return cell
     }
-    
+    func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath){
+        if indexPath.row == 0 {
+            
+        }
+        
+    }
     
     
     var value : NSDictionary?
@@ -109,53 +114,22 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
         
         backgroundLayer.layer.addSublayer(gradientLayer)
         navigationController?.navigationBar.isHidden=true
-        let rootRef = Database.database().reference()
         
-        if let user = Auth.auth().currentUser {
-            if let photoURL = user.photoURL{
-                loginArea.userPhoto.image = UIImage(named: String(describing:photoURL))
-            }else{
-                //loginArea.userPhoto.image = UIImage(named: "defaultUser")
-                loginArea.userPhoto.image = UIImage(named: "BW")
-            }
-            rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
-                // Get user value
-                self.value = userData.value as? NSDictionary
-                self.username = self.value?["username"] as? String ?? ""
-                self.loginArea.userName.setTitle(self.username! + " 님",for: .normal)
-
-                
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-            if let username = self.username{
-                self.loginArea.userName.setTitle(username + " 님",for: .normal)
-            }else{
-                self.loginArea.userName.setTitle(" ",for: .normal)
-            }
-            self.loginArea.userNumber.text = user.email
-            loginArea.isUserInteractionEnabled=false
-            logOutButton.isHidden=false
-            
-        }else{
-            loginArea.userPhoto.image = UIImage(named: "defaultUser")
-            loginArea.userName.setTitle("로그인이 필요합니다.",for: .normal)
-            loginArea.userNumber.text = "비회원번호 : 33709522"
-            loginArea.isUserInteractionEnabled=true
-            logOutButton.isHidden=true
-            
-            
-        }
+        
+    
         
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         if let user = Auth.auth().currentUser {
             if let photoURL = user.photoURL{
-                loginArea.userPhoto.image = UIImage(named: String(describing:photoURL))
+                let imageView: UIImageView = loginArea.userPhoto
+                let placeholderImage = UIImage(named: "defaultUser")
+                imageView.sd_setImage(with: photoURL, placeholderImage: placeholderImage)
             }else{
-                //loginArea.userPhoto.image = UIImage(named: "defaultUser")
-                loginArea.userPhoto.image = UIImage(named: "BW")
+                loginArea.userPhoto.image = UIImage(named: "defaultUser")
             }
             let rootRef = Database.database().reference()
 

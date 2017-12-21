@@ -9,12 +9,17 @@
 import UIKit
 import SwiftyJSON
 import Firebase
+import CoreData
 
-class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverlayDelegate,UISearchResultsUpdating,NMapLocationManagerDelegate,MMapReverseGeocoderDelegate{
+class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverlayDelegate,UISearchResultsUpdating,NMapLocationManagerDelegate,MMapReverseGeocoderDelegate,NSFetchedResultsControllerDelegate{
     
     @IBAction func unwindToMap(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
+    var fetchResultController: NSFetchedResultsController<EventMO>!
+    let fetchRequest: NSFetchRequest<EventMO> = EventMO.fetchRequest()
+    let sortDescriptor = NSSortDescriptor(key: "registerTime", ascending: true)
+        //fetchRequest.sortDescriptors = [sortDescriptor]
     
     
     
@@ -97,6 +102,8 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         
         view.addSubview(addButton)
         
+     
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -133,11 +140,12 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let helper = DispatchQueue(label : "forUpdatePins")
+        helper.sync {
         updatePins()
+        }
+        
         addMarker(NDPins)
-      
-        
-        
         mapView?.viewDidAppear()
         
     }
@@ -146,7 +154,7 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
+       
         
         mapView?.viewDidDisappear()
     }
@@ -514,6 +522,33 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         }
     }
     
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        //mapView.beginUpdates()
+        
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            //if let newIndexPath = newIndexPath { tableView.insertRows(at: [newIndexPath], with: .fade)            }
+            addMarker(NDPins)
+        case .delete:
+            //if let indexPath = indexPath { tableView.deleteRows(at: [indexPath], with: .fade)            }
+            addMarker(NDPins)
+        case .update:
+          //  if let indexPath = indexPath { tableView.reloadRows(at: [indexPath], with: .fade)            }
+            addMarker(NDPins)
+        default:
+                self.viewDidAppear(true)
+        }
+        if let fetchedObjects = controller.fetchedObjects {
+            NDEvents = fetchedObjects as! [EventMO]
+        }
+        
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+       // mapView.endUpdates()
+        
+    }
     
     
 }

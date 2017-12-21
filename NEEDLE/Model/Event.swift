@@ -14,14 +14,16 @@ class Event{
     var body : String
     var location : String
     var period : String
-    var people : String
+    var people : Int16
     var registerTime : String
     var uid : String
     var tag : String
+    var thumbnailImage : String
     var longitude : Double
     var latitude : Double
     
-    init(title: String, author: String, uid: String, location: String, period: String, registerTime: String, body: String, tag: String, people:String) {
+    
+    init(_ title: String,_ author: String,_ body: String,_ location: String,_ period: String,_  people:Int16,_ registerTime: String,_ uid:String ,_ tag: String,_ thumbnailImage : String) {
         self.title = title
         self.author = author
         self.location = location
@@ -33,6 +35,7 @@ class Event{
         self.people = people
         self.longitude = 0.0
         self.latitude = 0.0
+        self.thumbnailImage = thumbnailImage
     }
     
 }

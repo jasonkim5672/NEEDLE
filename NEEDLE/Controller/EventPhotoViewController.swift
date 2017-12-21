@@ -24,8 +24,16 @@ class EventPhotoViewController: UIViewController {
         navigationController?.navigationBar.setGradientBackground(colors: colors)
         nameLabel.text = thisEvent.title
         
-        coverImage.image = UIImage(named: "LiveBeats")
-        // Do any additional setup after loading the view.
+     
+        let url = thisEvent.thumbnailImage
+        if (url != nil && url != "") {
+            let httpsReference = storage.reference(forURL: url)
+            let imageView: UIImageView = coverImage
+            let placeholderImage = UIImage(named: "LiveBeats")
+            imageView.sd_setImage(with: httpsReference, placeholderImage: placeholderImage)
+        }else{
+            coverImage.image = UIImage(named: "LiveBeats")
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -16,6 +16,7 @@
 		E016B46E1FE965DE00B3CD29 /* NDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E016B46D1FE965DE00B3CD29 /* NDConstants.swift */; };
 		E02FDFA21FDBE0560092BB84 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */; };
 		E02FDFA41FDBE0910092BB84 /* ProfilePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */; };
+		E04669931FEA795400EAA0D0 /* NEEDLE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E04669911FEA795400EAA0D0 /* NEEDLE.xcdatamodeld */; };
 		E06176211FDAC56400E830CA /* loginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06176201FDAC56400E830CA /* loginScreenController.swift */; };
 		E071697D1FE673DF00BEE09A /* SignInPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071697C1FE673DF00BEE09A /* SignInPageViewController.swift */; };
 		E071697F1FE673F500BEE09A /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E071697E1FE673F500BEE09A /* SignUpPageViewController.swift */; };
@@ -86,6 +87,7 @@
 		E016B46D1FE965DE00B3CD29 /* NDConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDConstants.swift; sourceTree = "<group>"; };
 		E02FDFA11FDBE0560092BB84 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		E02FDFA31FDBE0910092BB84 /* ProfilePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageTableViewController.swift; sourceTree = "<group>"; };
+		E04669921FEA795400EAA0D0 /* NEEDLE.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NEEDLE.xcdatamodel; sourceTree = "<group>"; };
 		E06176201FDAC56400E830CA /* loginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginScreenController.swift; sourceTree = "<group>"; };
 		E071697C1FE673DF00BEE09A /* SignInPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPageViewController.swift; sourceTree = "<group>"; };
 		E071697E1FE673F500BEE09A /* SignUpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				E07A20191FD2E2C1003DE64C /* GoogleService-Info.plist */,
 				A8875A9F1FE69617004512C5 /* Constants.swift */,
 				E016B46D1FE965DE00B3CD29 /* NDConstants.swift */,
+				E04669911FEA795400EAA0D0 /* NEEDLE.xcdatamodeld */,
 			);
 			path = NEEDLE;
 			sourceTree = "<group>";
@@ -258,8 +261,8 @@
 		E0D088001FCF10C3005681CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E0EDA8491FD2917B00A1A57E /* NMapViewResources.swift */,
 				E09FB34E1FDC15C800D47536 /* Event.swift */,
+				E0EDA8491FD2917B00A1A57E /* NMapViewResources.swift */,
 				A8875AA31FE69AF8004512C5 /* ChatRoom.swift */,
 			);
 			path = Model;
@@ -402,22 +405,30 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NEEDLE/Pods-NEEDLE-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -447,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04669931FEA795400EAA0D0 /* NEEDLE.xcdatamodeld in Sources */,
 				E0F532C61FE42B1500221EF1 /* NowEventsViewController.swift in Sources */,
 				E0F532D01FE5109300221EF1 /* InfoTableViewCell.swift in Sources */,
 				E06176211FDAC56400E830CA /* loginScreenController.swift in Sources */,
@@ -706,6 +718,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E04669911FEA795400EAA0D0 /* NEEDLE.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E04669921FEA795400EAA0D0 /* NEEDLE.xcdatamodel */,
+			);
+			currentVersion = E04669921FEA795400EAA0D0 /* NEEDLE.xcdatamodel */;
+			path = NEEDLE.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E0D087D01FCEF0B3005681CC /* Project object */;
 }

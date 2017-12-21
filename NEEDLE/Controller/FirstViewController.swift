@@ -11,8 +11,9 @@
  */
 
 import UIKit
+import CoreData
 
-class FirstViewController: UITableViewController{
+class FirstViewController: UITableViewController,NSFetchedResultsControllerDelegate{
     var nearEvents : [Event] = []
     @IBOutlet weak var nearIssuePage: UIPageControl!
     @IBOutlet weak var nearIssueScrollView: UIScrollView!

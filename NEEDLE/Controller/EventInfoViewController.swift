@@ -24,9 +24,17 @@ class EventInfoViewController: UIViewController,UITableViewDelegate,UITableViewD
         navigationController?.navigationBar.setGradientBackground(colors: colors)
         nameLabel.text = thisEvent.title
         
-        coverImage.image = UIImage(named: "LiveBeats")
         
-        // Do any additional setup after loading the view.
+        
+        let url = thisEvent.thumbnailImage
+        if (url != nil && url != "") {
+            let httpsReference = storage.reference(forURL: url)
+            let imageView: UIImageView = coverImage
+            let placeholderImage = UIImage(named: "LiveBeats")
+            imageView.sd_setImage(with: httpsReference, placeholderImage: placeholderImage)
+        }else{
+            coverImage.image = UIImage(named: "LiveBeats")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,7 +53,7 @@ class EventInfoViewController: UIViewController,UITableViewDelegate,UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventLocation", for: indexPath) as! InfoTableViewCell
         cell.locationLabel.text = thisEvent.location
         cell.dateLabel.text = thisEvent.period
-        cell.peopleLabel.text = thisEvent.people
+        cell.peopleLabel.text = String(thisEvent.people)
         cell.summaryLabel.text = thisEvent.body
         
         

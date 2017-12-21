@@ -30,7 +30,7 @@ class SignUpPageViewController: UIViewController {
         }else{
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!){ (user, error) in
                 if user !=  nil{
-                    let follower : [String] = [""]
+                    let follower : [String] = []
                     let data = ["username": self.nameTextField.text!,"coverImage":"","follower":follower] as [String : Any]
                     self.rootRef = Database.database().reference()
 

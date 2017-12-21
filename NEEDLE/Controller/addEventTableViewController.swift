@@ -57,7 +57,13 @@ class addEventTableViewController: UITableViewController, UITextFieldDelegate,UI
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: nil ))
             self.present(alert, animated: true, completion: nil)
             
-        }else{
+        }else if(self.photoImageView.image == nil){
+            let alert = UIAlertController(title: "Oops", message: "사진을 넣어주세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: nil ))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else{
             let rootRef = Database.database().reference()
             
             if let user = Auth.auth().currentUser {
@@ -71,17 +77,41 @@ class addEventTableViewController: UITableViewController, UITextFieldDelegate,UI
                     dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
                     let DateInFormat:String = dateFormatter.string(from:todaysDate)
                     
+                    var data = Data()
+                    data = UIImageJPEGRepresentation(self.photoImageView.image!, 0.8)!
+                    // set upload path
+                    let filePath = "event/\(user.uid)/\(key)/thumbnailImage"
+                    let metaData = StorageMetadata()
+                    
+                    metaData.contentType = "image/jpg"
+                    storage.reference().child(filePath).putData(data, metadata: metaData){(metaData,error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                            return
+                        }else{
+                            //store downloadURL
+                            let downloadURL = metaData!.downloadURL()!.absoluteString
+                            //store downloadURL at database
+                            let childUpdates = ["/posts/\(key)/thumbnailImage": downloadURL,
+                                                "/user-posts/\(user.uid)/\(key)/thumbnailImage": downloadURL]
+                            rootRef.updateChildValues(childUpdates)
+
+                            print("image upload success")
+                        }
+                        
+                    }
+                  
+                    
                     let post = ["uid": user.uid,
                                 "author": username,
                                 "period" : self.periodTextField.text!,
                                 "registerTime" : DateInFormat,
                                 "location" : self.locationTextField.text!,
                                 "people" : self.peopleTextField.text!,
-                                "thumbnailImage": "",
                                 "title": self.nameTextField.text!,
                                 "body": self.bodyTextView.text!,
                                 "tag": ""]
-                    NDEvents.append(Event.init(title: self.nameTextField.text! ,author : username, uid : user.uid , location: self.locationTextField.text! , period : self.periodTextField.text!,registerTime: DateInFormat,body :self.bodyTextView.text! ,tag : "",people : self.peopleTextField.text!))
+                  //  NDEvents.append(Event.init(title: self.nameTextField.text! ,author : username, uid : user.uid , location: self.locationTextField.text! , period : self.periodTextField.text!,registerTime: DateInFormat,body :self.bodyTextView.text! ,tag : "",people : self.peopleTextField.text!))
                     let childUpdates = ["/posts/\(key)": post,
                                         "/user-posts/\(user.uid)/\(key)/": post]
                     rootRef.updateChildValues(childUpdates)
