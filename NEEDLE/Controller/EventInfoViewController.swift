@@ -15,6 +15,14 @@ class EventInfoViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var nameLabel: UILabel!
     var thisEvent : Event!
     
+    @IBAction func chatChat(_ sender: Any) {
+    }
+    @IBAction func Share(_ sender: Any) {
+       
+    }
+    @IBOutlet weak var chatUser: UIButton!
+    @IBAction func joinEvent(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         var colors = [UIColor]()

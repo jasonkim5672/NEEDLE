@@ -1563,6 +1563,9 @@
                                         <state key="normal" title=" 참여" image="done ">
                                             <color key="titleColor" red="1" green="0.4392156862745098" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="joinEvent:" destination="kgz-rG-XDJ" eventType="touchUpInside" id="fUl-g6-axp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP5-FY-Ph5">
                                         <rect key="frame" x="125.5" y="0.0" width="124" height="40"/>
@@ -1571,6 +1574,9 @@
                                         <state key="normal" title=" 1:1 채팅" image="email ">
                                             <color key="titleColor" red="1" green="0.43921568630000002" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="chatChat:" destination="kgz-rG-XDJ" eventType="touchUpInside" id="1gp-NU-5PI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4og-br-Xiz">
                                         <rect key="frame" x="250.5" y="0.0" width="124.5" height="40"/>
@@ -1579,6 +1585,9 @@
                                         <state key="normal" title=" 공유" image="share ">
                                             <color key="titleColor" red="1" green="0.43921568630000002" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="Share:" destination="kgz-rG-XDJ" eventType="touchUpInside" id="h6y-hS-Mkh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1755,6 +1764,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="z1C-uc-U1x"/>
                     <connections>
+                        <outlet property="chatUser" destination="hP5-FY-Ph5" id="4P1-7f-EmY"/>
                         <outlet property="coverImage" destination="nAo-0f-fCc" id="vsR-W8-LIf"/>
                         <outlet property="nameLabel" destination="teX-Or-zIv" id="uhb-hP-x5e"/>
                         <outlet property="profileImage" destination="hCn-9c-36g" id="IFa-xs-JK3"/>
