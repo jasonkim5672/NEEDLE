@@ -146,5 +146,17 @@ class FollowerViewController: UIViewController,UITableViewDelegate, UITableViewD
      // Pass the selected object to the new view controller.
      }
      */
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "showUnique" {
+            if let indexPath = table.indexPathForSelectedRow {
+                let tabBarController = segue.destination as! ProfilePageTableViewController
+                //tabBarController. =  myEvents[indexPath.row].uid
+                profileUserId = myEvents[indexPath.row].uid
+              
+            }
+        }
+        
+    }
 }

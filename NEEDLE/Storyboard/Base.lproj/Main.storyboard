@@ -870,6 +870,7 @@
                                             <outlet property="summaryLabel" destination="EEf-jB-H3X" id="0OG-ow-TwS"/>
                                             <outlet property="thumbnailImage" destination="RUE-jC-EzZ" id="1Ka-8h-t3d"/>
                                             <outlet property="titleLabel" destination="yvA-C9-6hv" id="yVM-ag-X8j"/>
+                                            <segue destination="Eai-YI-LjV" kind="show" identifier="showUnique" id="E2z-BZ-ZkM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2732,5 +2733,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ae2-GC-WMd"/>
+        <segue reference="E2z-BZ-ZkM"/>
     </inferredMetricsTieBreakers>
 </document>

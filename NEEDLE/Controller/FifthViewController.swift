@@ -132,7 +132,7 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
                 loginArea.userPhoto.image = UIImage(named: "defaultUser")
             }
             let rootRef = Database.database().reference()
-
+            
             rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
                 // Get user value
                 let value = userData.value as? NSDictionary
@@ -170,6 +170,8 @@ class FifthViewController: UIViewController, UITableViewDelegate,UITableViewData
             let rootRef = Database.database().reference()
             if let user = Auth.auth().currentUser {
               
+                profileUserId = user.uid
+                
                 
                 rootRef.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (userData) in
                     // Get user value
