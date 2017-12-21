@@ -240,10 +240,27 @@ class SecondViewController: UIViewController,NMapViewDelegate, NMapPOIdataOverla
         let vvv = UIView(frame : CGRect(x:0,y:self.view.bounds.size.height-300,width:self.view.bounds.size.width,height:200))
         vvv.backgroundColor = UIColor(patternImage: UIImage(named: "LiveBeats")!)
         
+        let tap = UITapGestureRecognizer(target: self, action: "handleTap:")
+        
+        //vvv.addGestureRecognizer(tap)
+        
+        
         //vvv.backgroundColor = UIColor.blue
         return vvv
         
     }
+    
+    func handleTap(sender: UITapGestureRecognizer) {
+        alertFunc("z쿵캉")
+        // handling code
+    }
+    
+    func alertFunc(_ memo:String, _ title:String="경고") {
+        let alert = UIAlertController(title: title, message: memo, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, anchorPointWithType poiFlagType: NMapPOIflagType) -> CGPoint {
         return NMapViewResources.anchorPoint(withType: poiFlagType)
